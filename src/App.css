@@ -5,13 +5,18 @@ nav{
     min-height: 10vh;
     background: rgb(80, 105, 109);
     color: white;
+    padding: 10px 0px 10px 0px
 }
 
 .nav-links{
     width: 50%;
     display: flex;
-    justify-content: space-around;
+    justify-content:space-around;
     align-items: center;
     list-style: none;
+}
+
+h1{
+    text-align: center;
 }
 
