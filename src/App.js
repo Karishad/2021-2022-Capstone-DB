@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import NavBar from './components/NavBar';
 import CreatePage from './CreatePage';
 import FindPage from './FindPage';
@@ -22,6 +23,8 @@ export default function App() {
           <Route path="/find" element={<FindPage />} />
         </Routes>
       </div>
+
+     
     </Router>
   );
-}
+  } 
