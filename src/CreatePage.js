@@ -31,7 +31,7 @@ export default function CreatePage() {
         </div>
 
         <div className="courseDescriptionTextArea">
-          <label htmlFor="courseDescription">Course Descripion </label>
+          <label htmlFor="courseDescription">Course Description </label>
           <textarea name="courseDescription" id="courseDescription" {...register('courseDescription')}></textarea>
         </div>
 
