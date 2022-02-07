@@ -26,4 +26,4 @@ yarn-error.log*
 # sqlite
 sqldiff*
 sqlite3*
-/db/*.db
+testDB.db
