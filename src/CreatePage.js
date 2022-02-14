@@ -1,4 +1,5 @@
 import { useForm } from "react-hook-form"
+import './App.css'
 
 export default function CreatePage() {
   const { register, handleSubmit, errors } = useForm();
@@ -8,7 +9,7 @@ export default function CreatePage() {
   }
 
   return (
-    <div>
+    <div className="Createpage-form">
       <form onSubmit={handleSubmit(onSubmit)}>
         <div>
           <label htmlFor="department">Department </label>

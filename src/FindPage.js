@@ -1,45 +1,48 @@
 import React from "react"
-import {useForm} from "react-hook-form"
+import { useForm } from "react-hook-form"
 
-export default function FindPage(){
-    const {register, handleSubmit, errors} = useForm()
+export default function FindPage() {
+    const { register, handleSubmit, errors } = useForm()
 
     const onSubmit = (data) => {
         console.log(data)
-      }
+    }
 
-    return(
-        <form onSubmit={handleSubmit(onSubmit)}>
-            <div>
-                <label htmlFor="department">Department </label>
-                <select name="department" id="department" defaultValue="" {...register('department')}>
-                    <option value="" disabled>Select a department...</option>
-                    <option value="Computer Science" id="Computer Science option">Computer Science</option>
-                    <option value="Computer Engineering">Computer Engineering</option>
-                    <option value="Electrical Engineering">Electrical Engineering</option>
-                </select>
-            </div>
+    return (
+        <div className="Findpage-form">
+            <form onSubmit={handleSubmit(onSubmit)}>
+                <div>
+                    <label htmlFor="department">Department </label>
+                    <select name="department" id="department" defaultValue="" {...register('department')}>
+                        <option value="" disabled>Select a department...</option>
+                        <option value="Computer Science" id="Computer Science option">Computer Science</option>
+                        <option value="Computer Engineering">Computer Engineering</option>
+                        <option value="Electrical Engineering">Electrical Engineering</option>
+                    </select>
+                </div>
 
-            <div>
-                <label htmlFor="courseNumber">Course Number </label>
-                <input type="text" name="courseNumber" id="courseNumber" {...register('courseNumber', {minLength: 4})}></input>
-            </div>
+                <div>
+                    <label htmlFor="courseNumber">Course Number </label>
+                    <input type="text" name="courseNumber" id="courseNumber" {...register('courseNumber', { minLength: 4 })}></input>
+                </div>
 
 
-            <div>
-                <label htmlFor="courseName">Course Name </label>
-                <input type="text" name="courseName" id="courseName" {...register('courseName')}></input>
-            </div>
+                <div>
+                    <label htmlFor="courseName">Course Name </label>
+                    <input type="text" name="courseName" id="courseName" {...register('courseName')}></input>
+                </div>
 
-            <div>
-                <label htmlFor="courseInstructor">Course Instructor </label>
-                <input type="text" name="courseInstructor" id="courseInstructor" {...register('courseInstructor')}></input>
-            </div>
+                <div>
+                    <label htmlFor="courseInstructor">Course Instructor </label>
+                    <input type="text" name="courseInstructor" id="courseInstructor" {...register('courseInstructor')}></input>
+                </div>
 
-            
-            <button type="submit">Query</button>
 
-        </form>
+                <button type="submit">Query</button>
+
+            </form>
+        </div>
+
     )
 }
 
