@@ -1,43 +1,64 @@
-import { useForm } from "react-hook-form"
+import { useForm } from "react-hook-form";
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from "yup";
+import axios from './axios';
+
+
 
 export default function CreatePage() {
-  const { register, handleSubmit, errors } = useForm();
+  const schema = yup.object({
+    Department: yup.string().length(4).required(),
+    CourseNumber: yup.number().positive().integer().lessThan(10000).moreThan(999).required(),
+    CourseName: yup.string().max(50).required(),
+    CourseDescription: yup.string().max(250),
+    CourseInstructor: yup.string().max(50).required()
+  }).required();
 
-  const onSubmit = (data) => {
-    console.log(data)
-  }
+  const { register, handleSubmit, formState:{ errors }, reset } = useForm({
+    resolver: yupResolver(schema)
+  });
+
+  const onSubmit = async (req) => {
+    //console.log(req);
+    try {
+      const res = await axios.post('/courses', req);
+      console.log(res.data);
+    } catch (err) {
+      console.error(err);
+    };
+    reset();
+  };
 
   return (
     <div>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div>
-          <label htmlFor="department">Department </label>
-          <select name="department" id="department" defaultValue="" {...register('department')}>
+          <label htmlFor="Department">Department </label>
+          <select name="Department" id="Department" defaultValue="" {...register('Department')}>
             <option value="" disabled>Select a department...</option>
-            <option value="Computer Science" id="Computer Science option">Computer Science</option>
-            <option value="Computer Engineering">Computer Engineering</option>
-            <option value="Electrical Engineering">Electrical Engineering</option>
+            <option value="CSCE" id="CSCE option">CSCE</option>
+            <option value="EENG">EENG</option>
           </select>
         </div>
 
         <div>
-          <label htmlFor="courseNumber">Course Number </label>
-          <input type="text" name="courseNumber" id="courseNumber" {...register('courseNumber')}></input>
+          <label htmlFor="CourseNumber">Course Number </label>
+          <input type="text" name="CourseNumber" id="CourseNumber" {...register('CourseNumber')}></input>
         </div>
 
         <div>
-          <label htmlFor="courseName">Course Name </label>
-          <input type="text" name="courseName" id="courseName" {...register('courseName')}></input>
+          <label htmlFor="CourseName">Course Name </label>
+          <input type="text" name="CourseName" id="CourseName" {...register('CourseName')}></input>
         </div>
 
         <div className="courseDescriptionTextArea">
-          <label htmlFor="courseDescription">Course Description </label>
-          <textarea name="courseDescription" id="courseDescription" {...register('courseDescription')}></textarea>
+          <label htmlFor="CourseDescription">Course Description </label>
+          <textarea name="CourseDescription" id="CourseDescription" {...register('CourseDescription')}></textarea>
         </div>
 
         <div>
-          <label htmlFor="courseInstructor">Course Instructor </label>
-          <input type="text" name="courseInstructor" id="courseInstructor" {...register('courseInstructor')}></input>
+          <label htmlFor="CourseInstructor">Course Instructor </label>
+          <input type="text" name="CourseInstructor" id="CourseInstructor" {...register('CourseInstructor')}></input>
         </div>
 
         <button type="reset">Reset</button>

@@ -1,7 +1,10 @@
 const express = require('express');
+const cors = require('cors');
 const sequelize = require('./db/database');
 const Course = require('./db/models/Course');
 const { Op } = require("sequelize");
+
+const PORT = 4000;
 
 // Connect database
 sequelize.sync({ alter: true }).then(console.log('DB connecting...'));
@@ -14,10 +17,11 @@ try {
 
 // Start server
 const app = express();
-app.listen(4000, () => console.log('Server running on port 4000.'));
+app.listen(PORT, () => console.log(`Server running on port ${PORT}.`));
 
 // Middleware
 app.use(express.json());
+app.use(cors({ origin: ['http://localhost:3000']}));
 
 /* Routes */
 //get all courses
@@ -40,6 +44,7 @@ app.get('/findcourse', async (req, res) => {
         {Department: req.body.Department},
         {CourseNumber: req.body.CourseNumber},
         {CourseName: req.body.CourseName},
+        {CourseDescription: req.body.CourseDescription},
         {CourseInstructor: req.body.CourseInstructor}
       ]
     }
