@@ -1,8 +1,8 @@
 import { useForm } from "react-hook-form";
+import './App.css'
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 import axios from './axios';
-
 
 
 export default function CreatePage() {
@@ -30,7 +30,7 @@ export default function CreatePage() {
   };
 
   return (
-    <div>
+    <div className="Createpage-form">
       <form onSubmit={handleSubmit(onSubmit)}>
         <div>
           <label htmlFor="Department">Department </label>

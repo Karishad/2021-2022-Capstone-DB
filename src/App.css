@@ -1,22 +1,101 @@
-nav{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    min-height: 10vh;
-    background: rgb(80, 105, 109);
-    color: white;
-    padding: 10px 0px 10px 0px
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400;500;600;700&family=Lora:ital,wght@1,400;1,500;1,600;1,700&family=Montserrat:wght@500&family=Varela+Round&display=swap');
+
+/*  The star * property applies to everything. 
+So the thing below applies to everything on the page */
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    /*background-color: #24252A;*/
+
 }
 
-.nav-links{
-    width: 50%;
+/* References the entire horizontal header bar on the top of the page that contains React's 
+<Links> and html's list items <li>*/
+nav{
     display: flex;
-    justify-content:space-around;
+    justify-content: space-between;
     align-items: center;
-    list-style: none;
+    padding: 30px 10%;
+    /*background: tan;*/
+    background-color: #24252A;
+    height: 90px;
 }
+
+/* The li below references all the list items <li> on the page. So basically anything 
+that is wrapped with the <li></li> tag (Located in my NavBar.js file) */
+li {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    color: #edf0f1;
+    text-decoration: none;
+    display: inline-block;
+    padding: 0px 30px;
+    transition: all 0.4s ease 0s;
+    background-color: #24252A;
+}
+
+/* References the things wrapped with React's <Link> tag. On hover the link changes color */
+.react-links :hover{
+    color: #0088a9;
+}
+    
+
+
+/* This references the logo picture*/
+.logo{
+    cursor: pointer;
+    height: 80px;
+    width: 80px;
+}
+
 
 h1{
     text-align: center;
 }
 
+/*
+NOTES for certain properties if you are confused:
+
+transition: sets a timer for any transitions that happens on that object (link changing color when hovered on)
+
+*/
+
+.Homepage{
+    font-family: "Montserrat", sans-serif;
+}
+
+.Createpage-form{
+    
+    font-family: "Montserrat", sans-serif;
+    font-weight: 100;
+    font-size: 18px;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    margin: 50px;
+}
+
+/*
+.Createpage-form input {
+    width: 200px;
+    height: 50px;
+    margin: 10px;
+}
+*/
+
+.Findpage-form{
+    
+    font-family: "Montserrat", sans-serif;
+    font-weight: 100;
+    font-size: 18px;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    margin: 50px;
+}
