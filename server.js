@@ -32,8 +32,8 @@ app.get('/courses', async (req, res) => {
 
 //add a course
 app.post('/courses', async (req, res) => {
-  await Course.create(req.body);
-  res.send("added course");
+  const newCourse = await Course.create(req.body);
+  res.send(newCourse);
 });
 
 //find courses given one attribute
