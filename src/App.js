@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import NavBar from './components/NavBar';
+import BlackNav from './components/BlackNav';
 import CreatePage from './CreatePage';
 import FindPage from './FindPage';
 import HomePage from './HomePage';
@@ -17,6 +18,7 @@ export default function App() {
     <Router>
       <div className="App">
         <NavBar />
+        <BlackNav />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/create" element={<CreatePage />} />

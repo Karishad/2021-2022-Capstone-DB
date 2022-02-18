@@ -18,41 +18,72 @@ nav{
     align-items: center;
     padding: 30px 10%;
     /*background: tan;*/
-    background-color: #24252A;
+    background-color: #006A31;
     height: 90px;
 }
 
 /* The li below references all the list items <li> on the page. So basically anything 
 that is wrapped with the <li></li> tag (Located in my NavBar.js file) */
 li {
-    font-family: "Montserrat", sans-serif;
     font-weight: 500;
-    font-size: 18px;
+    font-size: 15px;
     color: #edf0f1;
     text-decoration: none;
     display: inline-block;
     padding: 0px 30px;
     transition: all 0.4s ease 0s;
-    background-color: #24252A;
+    /*background-color: #24252A;*/
+}
+
+.blackNav{
+    display: flex;
+    padding-top: 5.5px;
+    height: 35px;
+    width: 100%;
+}
+
+.nav-links{
+    display: flex;
+    position: relative;
+    margin-left: 385px;
+    font-family: 'Open Sans', sans-serif;
 }
 
 /* References the things wrapped with React's <Link> tag. On hover the link changes color */
-.react-links :hover{
+.nav-links :hover{
     color: #0088a9;
 }
-    
+
+.site-title{
+    display: flex;
+    justify-content: left;
+}
+
+.websiteName{
+    color: white;
+    margin-left: 10px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.websiteName .unt{
+    font-size: 15px;
+}
+
+.websiteName .collegeName{
+    font-size: 35px;
+}
 
 
 /* This references the logo picture*/
 .logo{
     cursor: pointer;
-    height: 80px;
-    width: 80px;
+    height: 150px;
+    width: 130px;
+    margin-top: 80px;
 }
 
-
-h1{
-    text-align: center;
+.blackNav{
+    background-color: black;
 }
 
 /*
@@ -63,7 +94,9 @@ transition: sets a timer for any transitions that happens on that object (link c
 */
 
 .Homepage{
-    font-family: "Montserrat", sans-serif;
+    font-family: adobeJenson;
+    src: url(fonts/adobe-jenson.otf);
+    text-align: center;
 }
 
 .Createpage-form{
