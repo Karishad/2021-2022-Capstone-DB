@@ -25,8 +25,6 @@ export default function App() {
           <Route path="/find" element={<FindPage />} />
         </Routes>
       </div>
-
-     
     </Router>
   );
   } 
