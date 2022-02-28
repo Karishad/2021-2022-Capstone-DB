@@ -1,0 +1,94 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400;500;600;700&family=Lora:ital,wght@1,400;1,500;1,600;1,700&family=Montserrat:wght@500&family=Varela+Round&display=swap");
+
+/*  The star * property applies to everything. 
+This effects the entire page including the nav bar. Remove "margin: 0" to see
+what I mean. */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* NAVIGATION BAR -------------------------------------------------------------------------/
+/* References the entire horizontal header bar on the top of the page that contains React's 
+<Links> and html's list items <li>*/
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 10%;
+    /*background: tan;*/
+    background-color: #006a31;
+    height: 90px;
+}
+
+/* The li below references all the list items <li> on the page. So basically anything 
+that is wrapped with the <li></li> tag (Located in my NavBar.js file) */
+li {
+    font-weight: 500;
+    font-size: 15px;
+    color: #edf0f1;
+    text-decoration: none;
+    display: inline-block;
+    padding: 0px 30px;
+    transition: all 0.4s ease 0s;
+    /*background-color: #24252A;*/
+}
+
+.blackNav {
+    box-sizing: border-box;
+    display: flex;
+    padding-top: 5.5px;
+    height: 35px;
+    width: 100%;
+}
+
+.nav-links {
+    display: flex;
+    position: relative;
+    margin-left: 385px;
+    font-family: "Open Sans", sans-serif;
+}
+
+/* References the things wrapped with React's <Link> tag. On hover the link changes color */
+.nav-links :hover {
+    color: #0088a9;
+}
+
+.site-title {
+    display: flex;
+    justify-content: left;
+}
+
+.websiteName {
+    color: white;
+    margin-left: 10px;
+    font-family: "Open Sans", sans-serif;
+}
+
+.websiteName .unt {
+    font-size: 15px;
+}
+
+.websiteName .collegeName {
+    font-size: 35px;
+}
+
+/* This references the logo picture*/
+.logo {
+    cursor: pointer;
+    height: 150px;
+    width: 130px;
+    margin-top: 80px;
+}
+
+.blackNav {
+    background-color: black;
+}
+/* NAVIGATION BAR -------------------------------------------------------------------------*/
+
+/*
+NOTES for certain properties if you are confused:
+transition: sets a timer for any transitions that happens on that object (link changing color when hovered on)
+*/
+

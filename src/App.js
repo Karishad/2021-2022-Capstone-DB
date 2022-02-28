@@ -4,7 +4,12 @@ import BlackNav from './components/BlackNav';
 import CreatePage from './CreatePage';
 import FindPage from './FindPage';
 import HomePage from './HomePage';
-import './App.css'
+import './CSS/App.css'
+import './CSS/HomePage.css'
+import './CSS/CreatePage.css'
+import './CSS/FindPage.css'
+
+
 
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 

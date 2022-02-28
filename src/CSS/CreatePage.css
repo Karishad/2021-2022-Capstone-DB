@@ -1,0 +1,173 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400;500;600;700&family=Lora:ital,wght@1,400;1,500;1,600;1,700&family=Montserrat:wght@500&family=Varela+Round&display=swap");
+
+
+.Form-inputs {
+    /*background-color: yellow;*/
+    /*causes all text to go to the leftmost side*/
+    text-align: left;
+
+    font-family: "Montserrat", sans-serif;
+    font-weight: 100;
+    font-size: 18px;
+
+    /* causes the page to use the grid layout defined below */
+    display: grid;
+
+    /* if you specify fr, it means that that section will adjust when you resize the browser, if you put px, it doesnt resize*/
+    grid-template-columns: 1fr 1fr 1fr 1fr; /* creates 2 equally divided sections on the page. You also could type "repeat(2, 1fr)". Where 2 is the # of sections and 1fr is the size*/
+    grid-template-rows: 1fr; /* 3 row sections with top and bottom fixed*/
+    gap: 10px; /* determines gap between section boxes. Excludes the edges touching the side of that object's container*/
+
+    padding: 20px;
+    /* 
+    space between that element and its outer container. Has up to 4 parameters in order: top, right, bottom, left. 
+    If only 3 arguments, 1st is for top, 2nd for left and right, and 3rd for bottom.
+    If only 2 arguments, 1st is for top and bottom and 2nd is for left and right.
+    If only 1 argument, it is for top, right, bottom, and left
+    */
+
+    box-sizing: border-box;
+    /* If you had a container with "box-sizing: content-box" with a height of say 400px, and you add a padding of 10px, it causes 
+      that container's height to be 410px, not 400px with a padding of 10px. So to fix you change to "box-sizing: border-box". This
+      gives you a 400px container box with 10px padding. */
+
+    position: relative;
+    /* position specifies the positioning method for the HTML element. "relative" means that the element
+    will react to any padding you give it */
+}
+
+/* any .div in the Createpage container will have these properties.
+So in this instance this effects every input field since I am surrounding every HTML 
+input form element with a div. */
+.Form-inputs div {
+    position: relative;
+    padding: 10px;
+    /*border: 1px solid black;*/
+}
+
+/* This effects the input form fields. Putting input box's width at 100 to make its label 
+go on top. This makes the form look even*/
+.Form-inputs input {
+    width: 100%;
+    position: relative;
+    /*outline: 0; /* removes rectangle outline when you click on the input field */
+    /*border: 0; /* causes the input box to disappear */
+    /*border-bottom: 2px solid #9b9b9b; /* causes only the bottom of the input box to appear */
+    font-size: 16px;
+    padding: 7px 0; /*7px padding top and bot, 0px padding left and right*/
+}
+
+.Form-inputs input:focus{
+    transition: all 0.3s ease-out;
+    outline-color: #0088a9;
+}
+
+
+
+/* If I have only 1 grid row, I can exclude row-start and row-end. My element div blocks will
+be sorted in the order I declare them in the CreatePage.js file.*/
+.Form-inputs .Form-row1-col1 {
+    /*border: 5px solid blueviolet;*/
+    grid-column-start: 1;
+    grid-column-end: 2;
+
+    padding-top: 20px; /* extra padding on the top to avoid the UNT logo*/
+}
+
+.Form-inputs .Form-row1-col2 {
+    /*border: 5px solid goldenrod;*/
+    grid-column-start: 2;
+    grid-column-end: 3;
+    padding-top: 20px; /* extra padding on the top to avoid the UNT logo*/
+}
+
+.Form-inputs .Form-row2-col1 {
+    /*border: 5px solid red;*/
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+
+.Form-inputs .Form-row2-col2 {
+    /*border: 5px solid purple;*/
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
+.Form-inputs .Form-row3-col1 {
+    /*border: 5px solid lightcoral;*/
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+
+.Form-inputs .Form-row3-col2 {
+    /*border: 5px solid lightseagreen;*/
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
+.Form-inputs .Form-row4-col12 {
+    /*border: 5px solid orange;*/
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+.Form-inputs .Form-row5-col1 {
+    /*border: 5px solid palevioletred;*/
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+
+.Form-inputs .Form-row5-col2 {
+    /*border: 5px solid greenyellow;*/
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
+.Form-inputs .Form-row6-col1 {
+    /*border: 5px solid peru;*/
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+
+.Form-inputs .Buttons {
+    /*border: 5px solid aqua;*/
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+.Form-inputs .Form-pdf {
+    border: 5px solid pink;
+    grid-column-start: 3;
+    grid-column-end: 5;
+
+    grid-row-start: 1;
+    grid-row-end: 8; /* I only declared 1 row in the grid above. IDK why but me specifying 8 makes the PDF on the right even with the left side form. */
+    padding-top: 20px; /* extra padding on the top to avoid the UNT logo*/
+}
+
+.Form-inputs select {
+    cursor: pointer;
+    /* "curser: pointer" causes the curser to change from an arrow to a pointing finger when you 
+    hover over the select dropdown element*/
+    display: block;
+    /* display determines how an HTML element looks. "block" causes the HTML element to stretch up and 
+    take up a whole block or line on an HTML page.*/
+    top: 5px;
+    font-family: "Montserrat", sans-serif;
+}
+
+/*
+It seems that CSS grid row and column span specification only applies to its immediate children. From the container where you declare your grid, you can only apply grid span specifications to its immediate children.
+So it would not apply to nested <div>s or any other containers. Stack overflow example answer shown below.
+
+<div className="shipment-page">               <!-- grid parent where you delcare grid -->
+    <div className="shipment-form">           <!-- grid child -->
+        <form onSubmit={this.handleSubmit}>   <!-- too deep—not a grid child, does not apply span specifications-->
+*/
+
+/* 
+When you have a grid layout, there are lines that divide every section. So if have a page that is divided into 2 even column sections, there are actually 3 vertical lines on the page.
+1 line on the left, 1 line in the middle dividing the 2 sections, and 1 line on the right. Column start/end and Row start/end uses these lines to determine how far an element stretches. 
+In my case, I want my input fields to be on the left section of the page so I put column start at line 1 on the left and column end on line 2 that is in the middle dividing the 2 sections. 
+(Same for rows) 
+*/

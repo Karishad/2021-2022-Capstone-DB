@@ -1,5 +1,5 @@
 import React from "react";
-import '../App.css'
+import '../CSS/App.css'
 import logo from '../images/UNTbanner.png'
 
 export default function NavBar() {
