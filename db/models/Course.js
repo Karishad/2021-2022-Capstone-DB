@@ -4,26 +4,97 @@ const sequelize = require('../database');
 const { Model, DataTypes } = require('sequelize');
 
 
+/*
+    General Table Schema
+    - Program (Known as Group)
+    - CourseNumber
+    - CourseName
+    - Coordinator
+    - Book
+    - Prerequisites
+    - CreditHours
+    - ContactHours
+    - RequiredFor
+    - Outcome -> Need to implement 
+    - CourseDescription
+    - CombinedWith -> Need to implement
+    - StudentOutcome -> Need to implement
+    - Topics
+    - LastUpdated
+    - RoomNumberForSoftware
+    - SoftwareUsed
+*/
+
 class Course extends Model {};
 Course.init({
-    Department: {
-        type: "VARCHAR(4)",
-        allowNull: false
-    },
     CourseNumber: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.INTEGR,
         allowNull: false
     },
     CourseName: {
         type: "VARCHAR(50)",
         allowNull: false
     },
-    CourseDescription: {
-        type: "VARCHAR(250)",
-    },
-    CourseInstructor: {
+    Coordinator: {
         type: "VARCHAR(50)",
         allowNull: false
+    },
+    Book: {
+        type: "VARCHAR(250)",
+        allowNull: false
+    },
+    Prerequisites: {
+        type: "VARCHAR(250)",
+        allowNull: false
+    },
+    CreditHours: {
+        type: DataTypes.INTEGER,
+        allowNull: false
+    },
+    ContactHours: {
+        type: "VARCHAR(250)",
+        allowNull: false
+    },
+    RequiredFor: {
+        type: "VARCHAR(2)",
+        allowNull: false
+    },
+    // Need to implement
+    Outcome: {
+        // Datatype for multiple Outcomes [1-9]
+
+    },
+    CourseDescription: {
+        type: "VARCHAR(250)",
+        allowNull: false
+    },
+    // Need to implement
+    CombinedWith: {
+        // Might not be necessary but keep here
+    },
+    // Need to implement
+    StudentOutcome: {
+        // Will be combined with Outcome attributes
+    },
+    Topics: {
+        type: "VARCHAR(250)",
+        allowNull: false        
+    },
+    Program: {
+        type: "VARCHAR(2)",
+        allowNull: false
+    },
+    LastUpdated: {
+        type: DataTypes.INTEGR,
+        allowNull: false        
+    },
+    RoomNumberForSoftware: {
+        type: "VARCHAR(250)",
+        allowNull: false        
+    },
+    SoftwareUsed: {
+        type: "VARCHAR(250)",
+        allowNull: false        
     }
 }, {
   sequelize,
