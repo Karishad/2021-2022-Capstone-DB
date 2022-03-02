@@ -6,11 +6,22 @@ import axios from './axios';
 
 export default function CreatePage() {
   const schema = yup.object({
-    Department: yup.string().length(4).required(),
+    Program: yup.string().length(2).required(),
+    ProgramRequired: yup.string().required(),
     CourseNumber: yup.number().positive().integer().lessThan(10000).moreThan(999).required(),
-    CourseName: yup.string().max(50).required(),
+    CourseCoordinator: yup.string().required(),
+    Prerequisites: yup.string().required(),
+    ContactHours: yup.number().positive().integer().required(),         //min, max, always int? required?
+    CourseName: yup.string().max(50).required(),                       
+    CourseBook: yup.string().required(),
+    CreditHours: yup.number().positive().integer().required(),         //min, max, always int?
+    Topics: yup.string().required(),
+    Outcome: yup.string().required(),
+    StudentOutcome: yup.string().required(),                          //a list of numbers?
     CourseDescription: yup.string().max(250),
-    CourseInstructor: yup.string().max(50).required()
+    SoftwareUsed: yup.string().required(),
+    RoomNumber: yup.string().required(),
+    SemesterUpdated: yup.string().required(),                        
   }).required();
 
   const { register, handleSubmit, formState: { errors }, reset } = useForm({
@@ -18,13 +29,13 @@ export default function CreatePage() {
   });
 
   const onSubmit = async (req) => {
-    //console.log(req);
-    try {
+    console.log(req);
+    /*try {
       const res = await axios.post('/courses', req);
       console.log(res.data);
     } catch (err) {
       console.error(err);
-    };
+    };*/
     reset();
   };
 
@@ -125,7 +136,7 @@ export default function CreatePage() {
 
       <div className="Form-row5-col2">
         <div>
-          <label htmlFor="RoomNumber">Room #</label>
+          <label htmlFor="RoomNumber">Software Room #</label>
           <input type="text" name="RoomNumber" id="RoomNumber" {...register('RoomNumber')}></input>
         </div>
       </div>
