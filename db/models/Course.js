@@ -28,7 +28,7 @@ const { Model, DataTypes } = require('sequelize');
 class Course extends Model {};
 Course.init({
     CourseNumber: {
-        type: DataTypes.INTEGR,
+        type: DataTypes.INTEGER,
         allowNull: false
     },
     CourseName: {
@@ -55,27 +55,27 @@ Course.init({
         type: "VARCHAR(250)",
         allowNull: false
     },
-    RequiredFor: {
+    RequiredFor: {              
         type: "VARCHAR(2)",
         allowNull: false
     },
     // Need to implement
-    Outcome: {
+    //Outcome: {
         // Datatype for multiple Outcomes [1-9]
 
-    },
+    //},
     CourseDescription: {
         type: "VARCHAR(250)",
         allowNull: false
     },
     // Need to implement
-    CombinedWith: {
+    //CombinedWith: {
         // Might not be necessary but keep here
-    },
+    //},
     // Need to implement
-    StudentOutcome: {
+    //StudentOutcome: {
         // Will be combined with Outcome attributes
-    },
+    //},
     Topics: {
         type: "VARCHAR(250)",
         allowNull: false        
@@ -85,7 +85,7 @@ Course.init({
         allowNull: false
     },
     LastUpdated: {
-        type: DataTypes.INTEGR,
+        type: DataTypes.INTEGER,
         allowNull: false        
     },
     RoomNumberForSoftware: {
