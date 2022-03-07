@@ -11,7 +11,7 @@ export default function CreatePage() {
   });
 
   const onSubmit = async (req) => {
-    console.log(req);
+    //console.log(req);
     try {
       const res = await axios.post('/courses', req);
       console.log(res.data);
