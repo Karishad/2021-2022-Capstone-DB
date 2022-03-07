@@ -12,12 +12,12 @@ export default function CreatePage() {
 
   const onSubmit = async (req) => {
     console.log(req);
-    /*try {
+    try {
       const res = await axios.post('/courses', req);
       console.log(res.data);
     } catch (err) {
       console.error(err);
-    };*/
+    };
     reset();
   };
 
@@ -121,14 +121,14 @@ export default function CreatePage() {
       <div className="Form-row3-col1">
         <div>
           <label htmlFor="Outcome"> Outcome</label>
-          <input type="text" name="Outcome" id="Outcome" /*{...register('Outcome')}*/></input>
+          <input type="text" name="Outcome" id="Outcome" defaultValue="blank" {...register('Outcome')}></input>
         </div>
       </div>
 
       <div className="Form-row3-col2">
         <div>
           <label htmlFor="StudentOutcome">Student Outcome</label>
-          <input type="text" name="StudentOutcome" id="StudentOutcome" /*{...register('StudentOutcome')}*/></input>
+          <input type="text" name="StudentOutcome" id="StudentOutcome" defaultValue="blank" {...register('StudentOutcome')}></input>
         </div>
       </div>
 
