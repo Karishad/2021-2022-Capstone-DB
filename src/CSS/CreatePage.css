@@ -58,10 +58,33 @@ go on top. This makes the form look even*/
 }
 
 .Form-inputs input:focus{
-    transition: all 0.3s ease-out;
+    
     outline-color: #0088a9;
 }
 
+.Form-inputs button {
+
+    font-family: "Montserrat", sans-serif;
+    font-size: 18px;
+    padding: 10px 20px;
+    border: 2px solid #000;
+    margin: 10px;
+    background: none;
+    cursor: pointer;
+    letter-spacing: 4px; /* spacing between letters on the button */
+
+    width: 215px; 
+    height: 80px;
+    border-radius: 4px; /* Determines the curve of the edges on the button*/
+    box-shadow: inset 0 0 0 0 #f9e506;
+    transition: ease-out 0.3s;
+    outline: none;
+}
+
+.Form-inputs button:hover{
+    box-shadow: inset 215 0 0 0 #f9e506;
+    color: #0088a9;
+}
 
 
 /* If I have only 1 grid row, I can exclude row-start and row-end. My element div blocks will
@@ -154,6 +177,10 @@ be sorted in the order I declare them in the CreatePage.js file.*/
     take up a whole block or line on an HTML page.*/
     top: 5px;
     font-family: "Montserrat", sans-serif;
+}
+
+.Form-inputs small{
+    color: red;
 }
 
 /*

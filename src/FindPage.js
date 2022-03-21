@@ -11,35 +11,52 @@ export default function FindPage() {
     return (
         <div className="Findpage-form">
             <form onSubmit={handleSubmit(onSubmit)}>
-                <div>
-                    <label htmlFor="department">Department </label>
-                    <select name="department" id="department" defaultValue="" {...register('department')}>
-                        <option value="" disabled>Select a department...</option>
-                        <option value="Computer Science" id="Computer Science option">Computer Science</option>
-                        <option value="Computer Engineering">Computer Engineering</option>
-                        <option value="Electrical Engineering">Electrical Engineering</option>
+                <div className="Form-row1-col1">
+                    <label htmlFor="Program">Program </label>
+                    <select name="Program" id="Program" defaultValue="" {...register('Program')}>
+                        <option value="" disabled>Select a program...</option>
+                        <option value="CS" id="CS option">Computer Science</option>
+                        <option value="CE" id="CE option">Computer Engineering</option>
+                        <option value="IT" id="IT option">Information Technology</option>
                     </select>
+                    <small className="text-danger">
+                        {errors?.Program && errors.Program.message}
+                    </small>
                 </div>
-
-                <div>
-                    <label htmlFor="courseNumber">Course Number </label>
-                    <input type="text" name="courseNumber" id="courseNumber" {...register('courseNumber', { minLength: 4 })}></input>
+                <div className="Form-row2-col1">
+                    <label htmlFor="RequiredFor">Program Requirement</label>
+                    <select name="RequiredFor" id="RequiredFor" defaultValue="" {...register('RequiredFor')}>
+                        <option value="" disabled>Select the program...</option>
+                        <option value="CS" id="CS option">Computer Science</option>
+                        <option value="CE" id="CE option">Computer Engineering</option>
+                        <option value="IT" id="IT option">Information Technology</option>
+                    </select>
+                    <small className="text-danger">
+                        {errors?.RequiredFor && errors.RequiredFor.message}
+                    </small>
                 </div>
-
-
-                <div>
-                    <label htmlFor="courseName">Course Name </label>
-                    <input type="text" name="courseName" id="courseName" {...register('courseName')}></input>
+                <div className="Form-row3-col1">
+                    <label htmlFor="CourseNumber">Course #</label>
+                    <input type="text" name="CourseNumber" id="CourseNumber" required {...register('CourseNumber')}></input>
+                    <small className="text-danger">
+                        {errors?.CourseNumber && errors.CourseNumber.message}
+                    </small>
                 </div>
-
-                <div>
-                    <label htmlFor="courseInstructor">Course Instructor </label>
-                    <input type="text" name="courseInstructor" id="courseInstructor" {...register('courseInstructor')}></input>
+                <div className="Form-row4-col1">
+                    <label htmlFor="Coordinator">Coordinator </label>
+                    <input type="text" name="Coordinator" id="Coordinator" {...register('Coordinator')}></input>
+                    <small className="text-danger">
+                        {errors?.Coordinator && errors.Coordinator.message}
+                    </small>
                 </div>
-
-
+                <div className="Form-row5-col1">
+                    <label htmlFor="CourseName">Course Name </label>
+                    <input type="text" name="CourseName" id="CourseName" {...register('CourseName')}></input>
+                    <small className="text-danger">
+                        {errors?.CourseName && errors.CourseName.message}
+                    </small>
+                </div>
                 <button type="submit">Query</button>
-
             </form>
         </div>
 

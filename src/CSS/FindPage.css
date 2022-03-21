@@ -1,13 +1,95 @@
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400;500;600;700&family=Lora:ital,wght@1,400;1,500;1,600;1,700&family=Montserrat:wght@500&family=Varela+Round&display=swap");
 
 .Findpage-form {
+    text-align: left;
+
     font-family: "Montserrat", sans-serif;
     font-weight: 100;
     font-size: 18px;
 
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-    margin: 50px;
+    display: grid;
+
+    /* if you specify fr, it means that that section will adjust when you resize the browser, if you put px, it doesnt resize*/
+    grid-template-columns: 1fr; /* creates 2 equally divided sections on the page. You also could type "repeat(2, 1fr)". Where 2 is the # of sections and 1fr is the size*/
+    grid-template-rows: 1fr; /* 3 row sections with top and bottom fixed*/
+    gap: 10px; /* determines gap between section boxes. Excludes the edges touching the side of that object's container*/
+
+    padding: 20px 800px;
+    /* 
+    space between that element and its outer container. Has up to 4 parameters in order: top, right, bottom, left. 
+    If only 3 arguments, 1st is for top, 2nd for left and right, and 3rd for bottom.
+    If only 2 arguments, 1st is for top and bottom and 2nd is for left and right.
+    If only 1 argument, it is for top, right, bottom, and left
+    */
+
+    box-sizing: border-box;
+    /* If you had a container with "box-sizing: content-box" with a height of say 400px, and you add a padding of 10px, it causes 
+      that container's height to be 410px, not 400px with a padding of 10px. So to fix you change to "box-sizing: border-box". This
+      gives you a 400px container box with 10px padding. */
+
+    position: relative;
+    /* position specifies the positioning method for the HTML element. "relative" means that the element
+    will react to any padding you give it */
 }
+
+.Findpage-form div {
+    position: relative;
+    padding: 10px;
+    /*border: 1px solid black;*/
+}
+
+/* This effects the input form fields. Putting input box's width at 100 to make its label 
+go on top. This makes the form look even*/
+.Findpage-form input {
+    width: 100%;
+    position: relative;
+    /*outline: 0; /* removes rectangle outline when you click on the input field */
+    /*border: 0; /* causes the input box to disappear */
+    /*border-bottom: 2px solid #9b9b9b; /* causes only the bottom of the input box to appear */
+    font-size: 16px;
+    padding: 7px 0; /*7px padding top and bot, 0px padding left and right*/
+}
+
+.Findpage-form input:focus {
+    outline-color: #0088a9;
+}
+
+.Findpage-form button {
+    font-family: "Montserrat", sans-serif;
+    font-size: 18px;
+    padding: 10px 20px;
+    border: 2px solid #000;
+    margin: 10px;
+    background: none;
+    cursor: pointer;
+    letter-spacing: 4px; /* spacing between letters on the button */
+
+    width: 215px;
+    height: 80px;
+    border-radius: 4px; /* Determines the curve of the edges on the button*/
+    box-shadow: inset 0 0 0 0 #f9e506;
+    transition: ease-out 0.3s;
+    outline: none;
+}
+
+.Findpage-form button:hover {
+    box-shadow: inset 215 0 0 0 #f9e506;
+    color: #0088a9;
+}
+
+.Findpage-form select {
+    cursor: pointer;
+    /* "curser: pointer" causes the curser to change from an arrow to a pointing finger when you 
+    hover over the select dropdown element*/
+    display: block;
+    /* display determines how an HTML element looks. "block" causes the HTML element to stretch up and 
+    take up a whole block or line on an HTML page.*/
+    top: 5px;
+    font-family: "Montserrat", sans-serif;
+}
+
+.Form-inputs small{
+    color: red;
+}
+
+
