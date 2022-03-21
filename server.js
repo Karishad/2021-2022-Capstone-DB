@@ -36,19 +36,18 @@ app.post('/courses', async (req, res) => {
   res.send(newCourse);
 });
 
-//find courses given one attribute
+//find courses
 app.get('/findcourse', async (req, res) => {
   const courses = await Course.findAll({
     where: {
       [Op.or]: [
-        {Department: req.body.Department},
+        {Program: req.body.Program},
+        {RequiredFor: req.body.RequiredFor},
         {CourseNumber: req.body.CourseNumber},
+        {Coordinator: req.body.Coordinator},
         {CourseName: req.body.CourseName},
-        {CourseDescription: req.body.CourseDescription},
-        {CourseInstructor: req.body.CourseInstructor}
       ]
     }
   });
   res.send(courses);
 });
-
