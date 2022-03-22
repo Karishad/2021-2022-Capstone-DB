@@ -159,6 +159,8 @@ be sorted in the order I declare them in the CreatePage.js file.*/
 }
 
 .Form-inputs .Form-pdf {
+    overflow: auto;
+    height: 80vh;
     border: 5px solid pink;
     grid-column-start: 3;
     grid-column-end: 5;
@@ -166,6 +168,11 @@ be sorted in the order I declare them in the CreatePage.js file.*/
     grid-row-start: 1;
     grid-row-end: 8; /* I only declared 1 row in the grid above. IDK why but me specifying 8 makes the PDF on the right even with the left side form. */
     padding-top: 20px; /* extra padding on the top to avoid the UNT logo*/
+}
+
+.pdf-image {
+    height: 400%;
+    width: max(100%, 600px);
 }
 
 .Form-inputs select {

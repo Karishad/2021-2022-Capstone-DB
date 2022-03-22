@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import { schema } from './schema';
 import axios from './axios';
+import space from '../src/images/space.png';
 
 //Implement error messages for outcome, student outcome
 
@@ -24,7 +25,9 @@ export default function CreatePage() {
   return (
     <form className="Form-inputs" onSubmit={handleSubmit(onSubmit)}>
 
-      <div className="Form-pdf"> Possible PDF preview?</div>
+      <div className="Form-pdf"> Possible PDF preview?
+      <img className= "pdf-image" src={space}/>
+      </div>
 
       <div className="Form-row1-col1">
         <div>
