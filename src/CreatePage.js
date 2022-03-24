@@ -11,6 +11,15 @@ export default function CreatePage() {
     resolver: yupResolver(schema)
   });
 
+  //I added an ID to the div that contains the outcomes and named it "Objectives".
+  //Duplicates Objective input field and appends it to the parent Objectives div.
+  const copyNode=()=>
+{
+    const node = document.getElementById("StudentOutcome")
+    const clone = node.cloneNode();
+    document.getElementById("Objectives").appendChild(clone);
+}
+
   const onSubmit = async (req) => {
     //console.log(req);
     try {
@@ -128,10 +137,13 @@ export default function CreatePage() {
         </div>
       </div>
 
-      <div className="Form-row3-col2">
-        <div>
+      <div className="Form-row3-col2" id="Form-row3-col2">
+        <div id="Objectives">
           <label htmlFor="StudentOutcome">Student Outcome</label>
           <input type="text" name="StudentOutcome" id="StudentOutcome" defaultValue="blank" {...register('StudentOutcome')}></input>
+        </div>
+        <div className="ObjectiveButton">
+          <input type="button" value="Add Objective" onClick={copyNode}></input>  
         </div>
       </div>
 
