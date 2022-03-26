@@ -21,6 +21,7 @@ app.listen(PORT, () => console.log(`Server running on port ${PORT}.`));
 
 // Middleware
 app.use(express.json());
+app.use(express.urlencoded({extended: true}));
 app.use(cors({ origin: ['http://localhost:3000']}));
 
 /* Routes */
@@ -37,7 +38,8 @@ app.post('/courses', async (req, res) => {
 });
 
 //find courses
-app.get('/findcourse', async (req, res) => {
+app.post('/findcourse', async (req, res) => {
+  console.log(req.body);
   const courses = await Course.findAll({
     where: {
       [Op.or]: [

@@ -1,10 +1,8 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
-import { schema } from './schema';
+import { schema } from './schema/addSchema';
 import axios from './axios';
 import space from '../src/images/space.png';
-
-//Implement error messages for outcome, student outcome
 
 export default function CreatePage() {
   const { register, handleSubmit, formState: { errors }, reset } = useForm({
@@ -26,7 +24,7 @@ export default function CreatePage() {
 
 
   const onSubmit = async (req) => {
-    //console.log(req);
+    console.log(req);
     try {
       const res = await axios.post('/courses', req);
       console.log(res.data);
@@ -76,7 +74,7 @@ export default function CreatePage() {
       <div className="Form-row2-col1">
         <div>
           <label htmlFor="CourseNumber">Course #</label>
-          <input type="text" name="CourseNumber" id="CourseNumber" required {...register('CourseNumber')}></input>
+          <input type="text" name="CourseNumber" id="CourseNumber" {...register('CourseNumber')}></input>
           <small className="text-danger">
             {errors?.CourseNumber && errors.CourseNumber.message}
           </small>

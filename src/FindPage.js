@@ -1,19 +1,36 @@
-import React from "react"
-import { useForm } from "react-hook-form"
+import React from "react";
+import { useForm } from "react-hook-form";
+import axios from './axios';
+
 
 export default function FindPage() {
-    const { register, handleSubmit, errors } = useForm()
+    const { register, handleSubmit, formState: { errors }, reset } = useForm({
+        defaultValues: {
+            Program: "",
+            RequiredFor: "",
+            CourseNumber: "",
+            Coordinator: "",
+            CourseName: ""
+        }
+      });
 
-    const onSubmit = (data) => {
-        console.log(data)
-    }
+    const onSubmit = async (req) => {
+        console.log(req);
+        try {
+            const res = await axios.post('/findcourse', req);
+            console.log(res.data);
+          } catch (err) {
+            console.error(err);
+          };
+        reset();
+    };
 
     return (
         <div className="Findpage-form">
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="Form-row1-col1">
                     <label htmlFor="Program">Program </label>
-                    <select name="Program" id="Program" defaultValue="" {...register('Program')}>
+                    <select name="Program" id="Program" {...register('Program')}>
                         <option value="" disabled>Select a program...</option>
                         <option value="CS" id="CS option">Computer Science</option>
                         <option value="CE" id="CE option">Computer Engineering</option>
@@ -25,7 +42,7 @@ export default function FindPage() {
                 </div>
                 <div className="Form-row2-col1">
                     <label htmlFor="RequiredFor">Program Requirement</label>
-                    <select name="RequiredFor" id="RequiredFor" defaultValue="" {...register('RequiredFor')}>
+                    <select name="RequiredFor" id="RequiredFor" {...register('RequiredFor')}>
                         <option value="" disabled>Select the program...</option>
                         <option value="CS" id="CS option">Computer Science</option>
                         <option value="CE" id="CE option">Computer Engineering</option>
@@ -37,7 +54,7 @@ export default function FindPage() {
                 </div>
                 <div className="Form-row3-col1">
                     <label htmlFor="CourseNumber">Course #</label>
-                    <input type="text" name="CourseNumber" id="CourseNumber" required {...register('CourseNumber')}></input>
+                    <input type="text" name="CourseNumber" id="CourseNumber" {...register('CourseNumber')}></input>
                     <small className="text-danger">
                         {errors?.CourseNumber && errors.CourseNumber.message}
                     </small>
