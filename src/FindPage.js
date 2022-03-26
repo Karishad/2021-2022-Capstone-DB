@@ -1,7 +1,7 @@
-import React from "react";
+import React, { Component } from "react";
 import { useForm } from "react-hook-form";
 import axios from './axios';
-
+import { Table } from "reactstrap";
 
 export default function FindPage() {
     const { register, handleSubmit, formState: { errors }, reset } = useForm({
@@ -12,16 +12,16 @@ export default function FindPage() {
             Coordinator: "",
             CourseName: ""
         }
-      });
+    });
 
     const onSubmit = async (req) => {
         console.log(req);
         try {
             const res = await axios.post('/findcourse', req);
             console.log(res.data);
-          } catch (err) {
+        } catch (err) {
             console.error(err);
-          };
+        };
         reset();
     };
 
@@ -35,6 +35,7 @@ export default function FindPage() {
                         <option value="CS" id="CS option">Computer Science</option>
                         <option value="CE" id="CE option">Computer Engineering</option>
                         <option value="IT" id="IT option">Information Technology</option>
+                        <option value="CICS" id="CICS option">Cyber Security</option>
                     </select>
                     <small className="text-danger">
                         {errors?.Program && errors.Program.message}
@@ -42,11 +43,10 @@ export default function FindPage() {
                 </div>
                 <div className="Form-row2-col1">
                     <label htmlFor="RequiredFor">Program Requirement</label>
-                    <select name="RequiredFor" id="RequiredFor" {...register('RequiredFor')}>
-                        <option value="" disabled>Select the program...</option>
-                        <option value="CS" id="CS option">Computer Science</option>
-                        <option value="CE" id="CE option">Computer Engineering</option>
-                        <option value="IT" id="IT option">Information Technology</option>
+                    <select name="RequiredFor" id="RequiredFor" defaultValue="" {...register('RequiredFor')}>
+                        <option value="" disabled>Select requirement</option>l
+                        <option value="Elective" id="Elevtive option">Elective</option>
+                        <option value="Required" id="Required option">Required</option>
                     </select>
                     <small className="text-danger">
                         {errors?.RequiredFor && errors.RequiredFor.message}
@@ -79,6 +79,84 @@ export default function FindPage() {
 
     )
 }
+/*
+export default function FindPage() {
+    const { register, handleSubmit, formState: { errors }, reset } = useForm({
+        defaultValues: {
+            Program: "",
+            RequiredFor: "",
+            CourseNumber: "",
+            Coordinator: "",
+            CourseName: ""
+        }
+    });
+
+    const onSubmit = async (req) => {
+        console.log(req);
+        try {
+            const res = await axios.post('/findcourse', req);
+            console.log(res.data);
+        } catch (err) {
+            console.error(err);
+        };
+        reset();
+    };
+
+    return (
+        <div className="Findpage-form">
+            <form onSubmit={handleSubmit(onSubmit)}>
+                <div className="Form-row1-col1">
+                    <label htmlFor="Program">Program </label>
+                    <select name="Program" id="Program" {...register('Program')}>
+                        <option value="" disabled>Select a program...</option>
+                        <option value="CS" id="CS option">Computer Science</option>
+                        <option value="CE" id="CE option">Computer Engineering</option>
+                        <option value="IT" id="IT option">Information Technology</option>
+                        <option value="CICS" id="CICS option">Cyber Security</option>
+                    </select>
+                    <small className="text-danger">
+                        {errors?.Program && errors.Program.message}
+                    </small>
+                </div>
+                <div className="Form-row2-col1">
+                    <label htmlFor="RequiredFor">Program Requirement</label>
+                    <select name="RequiredFor" id="RequiredFor" defaultValue="" {...register('RequiredFor')}>
+                        <option value="" disabled>Select requirement</option>l
+                        <option value="Elective" id="Elevtive option">Elective</option>
+                        <option value="Required" id="Required option">Required</option>
+                    </select>
+                    <small className="text-danger">
+                        {errors?.RequiredFor && errors.RequiredFor.message}
+                    </small>
+                </div>
+                <div className="Form-row3-col1">
+                    <label htmlFor="CourseNumber">Course #</label>
+                    <input type="text" name="CourseNumber" id="CourseNumber" {...register('CourseNumber')}></input>
+                    <small className="text-danger">
+                        {errors?.CourseNumber && errors.CourseNumber.message}
+                    </small>
+                </div>
+                <div className="Form-row4-col1">
+                    <label htmlFor="Coordinator">Coordinator </label>
+                    <input type="text" name="Coordinator" id="Coordinator" {...register('Coordinator')}></input>
+                    <small className="text-danger">
+                        {errors?.Coordinator && errors.Coordinator.message}
+                    </small>
+                </div>
+                <div className="Form-row5-col1">
+                    <label htmlFor="CourseName">Course Name </label>
+                    <input type="text" name="CourseName" id="CourseName" {...register('CourseName')}></input>
+                    <small className="text-danger">
+                        {errors?.CourseName && errors.CourseName.message}
+                    </small>
+                </div>
+                <button type="submit">Query</button>
+            </form>
+        </div>
+
+    )
+}
+*/
 
 /*
 --HTML attribute "for" changes--

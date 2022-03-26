@@ -49,6 +49,7 @@ export default function CreatePage() {
             <option value="CS" id="CS option">Computer Science</option>
             <option value="CE" id="CE option">Computer Engineering</option>
             <option value="IT" id="IT option">Information Technology</option>
+            <option value="CICS" id="CICS option">Cyber Security</option>
           </select>
           <small className="text-danger">
             {errors?.Program && errors.Program.message}
@@ -60,10 +61,9 @@ export default function CreatePage() {
         <div>
           <label htmlFor="RequiredFor">Program Requirement</label>
           <select name="RequiredFor" id="RequiredFor" defaultValue="" {...register('RequiredFor')}>
-            <option value="" disabled>Select the program...</option>
-            <option value="CS" id="CS option">Computer Science</option>
-            <option value="CE" id="CE option">Computer Engineering</option>
-            <option value="IT" id="IT option">Information Technology</option>
+            <option value="" disabled>Select requirement</option>l
+            <option value="Elective" id="Elevtive option">Elective</option>
+            <option value="Required" id="Required option">Required</option>
           </select>
           <small className="text-danger">
             {errors?.RequiredFor && errors.RequiredFor.message}
@@ -135,8 +135,8 @@ export default function CreatePage() {
 
       <div className="Form-row3-col1">
         <div>
-          <label htmlFor="Outcome"> Outcome</label>
-          <input type="text" name="Outcome" id="Outcome" defaultValue="blank" {...register('Outcome')}></input>
+          <label htmlFor="Course Outcome">Course Outcome</label>
+          <input type="text" name="Course Outcome" id="Course Outcome" defaultValue="blank" {...register('Course Outcome')}></input>
         </div>
       </div>
 

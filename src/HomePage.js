@@ -2,35 +2,6 @@ import React, { useEffect, Component } from 'react';
 import axios from "./axios";
 import { Table } from "reactstrap";
 
-//TODO save response as object then output on homepage
-//useState for object
-
-/*
-export default function HomePage() {
-  useEffect(() => {
-    async function getAllCourses() {
-      try {
-        const res = await axios.get('/courses');
-        console.log(res.data);
-        //console.log(res.data[0]); displays first array object
-      } catch (err) {
-        console.error(err);
-      };
-    };
-
-    getAllCourses();
-  });
-
-
-  return (
-    <div className="Homepage">
-      
-    </div>
-
-  )
-}
-*/
-
 class HomePage extends Component {
   //functions go before render(). To call a function, use "this.myfunction" inside the render()
 
@@ -41,6 +12,10 @@ class HomePage extends Component {
   //constructor for useState
   constructor() {
     super() //must call super() every time we want to use State. super() gives us a lot of methods into our class?
+    this.getCourses();
+  }
+
+  getCourses= async () =>{
     axios.get('/courses').then(res => {
       console.log(res.data)
       this.setState({ courses: res.data }) // fill state variable "courses" with res.data
@@ -57,15 +32,15 @@ class HomePage extends Component {
               <th>ID</th>
               <th>Course #</th>
               <th>Course Name</th>
-              <th>Course Description</th>
+              <th>Program</th>
               <th>Coordinator</th>
-              <th>Book</th>
+              <th>Required</th>
               <th>Prerequisites</th>
+              <th>Course Description</th>
               <th>Credit Hours</th>
               <th>Contact Hours</th>
-              <th>Required</th>
+              <th>Book</th>
               <th>Topics</th>
-              <th>Program</th>
               <th>LastUpdated</th>
               <th>Room # for Software</th>
               <th>Software Used</th>
@@ -77,19 +52,19 @@ class HomePage extends Component {
                 <td>{course.id}</td>
                 <td>{course.CourseNumber}</td>
                 <td>{course.CourseName}</td>
-                <td>{course.CourseDescription}</td>
+                <td>{course.Program}</td>              
                 <td>{course.Coordinator}</td>
-                <td>{course.Book}</td>
+                <td>{course.RequiredFor}</td>
                 <td>{course.PreRequisites}</td>
+                <td>{course.CourseDescription}</td>
                 <td>{course.CreditHours}</td>
                 <td>{course.ContactHours}</td>
-                <td>{course.RequiredFor}</td>
+                <td>{course.Book}</td>
                 <td>{course.Topics}</td>
-                <td>{course.Program}</td>
                 <td>{course.LastUpdated}</td>
                 <td>{course.RoomNumberForSoftware}</td>
                 <td>{course.SoftwareUsed}</td>
-                <td><button>Delete Syllabus</button></td>   
+                <td><button>Delete</button></td>   
               </tr>
                        
             ))}
@@ -120,6 +95,11 @@ async getAllCourses() {
         {course.CourseDescription}{course.Coordinator}{course.Book}{course.PreRequisites}{course.CreditHours}
         {course.ContactHours}{course.RequiredFor}{course.Topics}{course.Program}{course.LastUpdated}{course.RoomNumberForSoftware}
         {course.SoftwareUsed}</p> )}
+
+        deleteCourse=async(id)=>{
+    let data=await axios.delete(`/${id}`)
+    this.getCourses();
+  }
 
 */
 
