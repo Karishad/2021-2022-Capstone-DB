@@ -13,12 +13,17 @@ export default function CreatePage() {
 
   //I added an ID to the div that contains the outcomes and named it "Objectives".
   //Duplicates Objective input field and appends it to the parent Objectives div.
-  const copyNode=()=>
-{
+  const copyNode = () => {
     const node = document.getElementById("StudentOutcome")
     const clone = node.cloneNode();
     document.getElementById("Objectives").appendChild(clone);
-}
+  }
+
+  const deleteNode = () => {
+    const node = document.getElementById("StudentOutcome")
+    document.getElementById("Objectives").removeChild(node);
+  }
+
 
   const onSubmit = async (req) => {
     //console.log(req);
@@ -35,7 +40,7 @@ export default function CreatePage() {
     <form className="Form-inputs" onSubmit={handleSubmit(onSubmit)}>
 
       <div className="Form-pdf"> Possible PDF preview?
-      <img className= "pdf-image" src={space}/>
+        <img className="pdf-image" src={space} />
       </div>
 
       <div className="Form-row1-col1">
@@ -143,7 +148,10 @@ export default function CreatePage() {
           <input type="text" name="StudentOutcome" id="StudentOutcome" defaultValue="blank" {...register('StudentOutcome')}></input>
         </div>
         <div className="ObjectiveButton">
-          <input type="button" value="Add Objective" onClick={copyNode}></input>  
+          <input type="button" value="Add Objective" onClick={copyNode}></input>
+        </div>
+        <div className="ObjectiveDeleteButton">
+          <input type="button" value="Delete Objective" onClick={deleteNode}></input>
         </div>
       </div>
 

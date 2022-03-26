@@ -23,8 +23,9 @@ nav {
 }
 
 /* The li below references all the list items <li> on the page. So basically anything 
-that is wrapped with the <li></li> tag (Located in my NavBar.js file) */
-li {
+that is wrapped with the <li></li> tag (Located in my NavBar.js file). Applies to all lists everywhere except lists with
+the class "mapdisplay" (On Homepage to display DB) */
+li{
     font-weight: 500;
     font-size: 15px;
     color: #edf0f1;
@@ -87,4 +88,3 @@ li {
 NOTES for certain properties if you are confused:
 transition: sets a timer for any transitions that happens on that object (link changing color when hovered on)
 */
-
