@@ -5,8 +5,8 @@ import logo from '../images/UNTbanner.png'
 export default function NavBar() {
     return (
         <nav className="site-title">
-            <a target="_blank" href="https://www.unt.edu/">
-            <img className="logo" src={logo} />
+            <a target="_blank" rel="noreferrer" href="https://www.unt.edu/">
+            <img className="logo" src={logo} alt="UNT logo"/>
             </a>
             <div className = "websiteName">
                 <h1 className="unt">College of Engineering</h1>

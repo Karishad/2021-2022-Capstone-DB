@@ -38,7 +38,7 @@ export default function CreatePage() {
     <form className="Form-inputs" onSubmit={handleSubmit(onSubmit)}>
 
       <div className="Form-pdf"> Possible PDF preview?
-        <img className="pdf-image" src={space} />
+        <img className="pdf-image" src={space} alt="" />
       </div>
 
       <div className="Form-row1-col1">

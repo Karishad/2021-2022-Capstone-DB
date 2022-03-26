@@ -1,5 +1,4 @@
 import React, { useEffect, Component } from 'react';
-import instance from './axios';
 import axios from "./axios";
 import { Table } from "reactstrap";
 
@@ -32,7 +31,7 @@ export default function HomePage() {
 }
 */
 
-class HomePage extends React.Component {
+class HomePage extends Component {
   //functions go before render(). To call a function, use "this.myfunction" inside the render()
 
   state = {
@@ -42,7 +41,7 @@ class HomePage extends React.Component {
   //constructor for useState
   constructor() {
     super() //must call super() every time we want to use State. super() gives us a lot of methods into our class?
-    instance.get('/courses').then(res => {
+    axios.get('/courses').then(res => {
       console.log(res.data)
       this.setState({ courses: res.data }) // fill state variable "courses" with res.data
     })
@@ -74,7 +73,7 @@ class HomePage extends React.Component {
           </thead>
           <tbody>
             {this.state.courses.map(course => (
-              <tr>
+              <tr key={course.id}>
                 <td>{course.id}</td>
                 <td>{course.CourseNumber}</td>
                 <td>{course.CourseName}</td>
@@ -90,10 +89,9 @@ class HomePage extends React.Component {
                 <td>{course.LastUpdated}</td>
                 <td>{course.RoomNumberForSoftware}</td>
                 <td>{course.SoftwareUsed}</td>
-                <div className="Delete">
-                  <input type="button" value="Delete Syllabus"></input>
-                </div>
+                <td><button>Delete Syllabus</button></td>   
               </tr>
+                       
             ))}
           </tbody>
         </Table>
@@ -102,7 +100,10 @@ class HomePage extends React.Component {
   }
 }
 
-export default HomePage
+export default HomePage;
+/*             <div className="Delete">
+                  <input type="button" value="Delete Syllabus"></input>
+                </div>*/
 
 /*
 async getAllCourses() {

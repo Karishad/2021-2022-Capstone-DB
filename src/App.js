@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import NavBar from './components/NavBar';
 import BlackNav from './components/BlackNav';
 import CreatePage from './CreatePage';
