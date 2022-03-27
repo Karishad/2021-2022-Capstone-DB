@@ -51,7 +51,7 @@ export default function CreatePage() {
             <option value="Computer Science" id="CS option">Computer Science</option>
             <option value="Computer Engineering" id="CE option">Computer Engineering</option>
             <option value="Information Technology" id="IT option">Information Technology</option>
-            <option value="CyberSecurity" id="CICS option">Cyber Security</option>
+            <option value="Cybersecurity" id="CICS option">Cybersecurity</option>
           </select>
           <small className="text-danger">
             {errors?.Program && errors.Program.message}
@@ -61,14 +61,15 @@ export default function CreatePage() {
 
       <div className="Form-row1-col2">
         <div>
-          <label htmlFor="RequiredFor">Program Requirement</label>
-          <select name="RequiredFor" id="RequiredFor" defaultValue="" {...register('RequiredFor')}>
-            <option value="" disabled>Select requirement</option>l
-            <option value="Elective" id="Elevtive option">Elective</option>
+          <label htmlFor="Required">Program Requirement</label>
+          <select name="Required" id="Required" defaultValue="" {...register('Required')}>
+            <option value="" disabled>Select requirement</option>
+            <option value="Elective" id="Elective option">Elective</option>
+            <option value="Selected Elective" id="Selected elective option">Selected Elective</option>
             <option value="Required" id="Required option">Required</option>
           </select>
           <small className="text-danger">
-            {errors?.RequiredFor && errors.RequiredFor.message}
+            {errors?.Required && errors.Required.message}
           </small>
         </div>
       </div>
@@ -138,14 +139,14 @@ export default function CreatePage() {
       <div className="Form-row3-col1">
         <div>
           <label htmlFor="Course Outcome">Course Outcome</label>
-          <input type="text" name="Course Outcome" id="Course Outcome" defaultValue="blank" {...register('Course Outcome')}></input>
+          <input type="text" name="Course Outcome" id="Course Outcome" defaultValue="blank"></input>
         </div>
       </div>
 
       <div className="Form-row3-col2" id="Form-row3-col2">
         <div id="Objectives">
           <label htmlFor="StudentOutcome">Student Outcome</label>
-          <input type="text" name="StudentOutcome" id="StudentOutcome" defaultValue="blank" {...register('StudentOutcome')}></input>
+          <input type="text" name="StudentOutcome" id="StudentOutcome" defaultValue="blank"></input>
         </div>
         <div className="ObjectiveButton">
           <input type="button" value="Add Objective" onClick={copyNode}></input>
@@ -168,7 +169,7 @@ export default function CreatePage() {
       <div className="Form-row5-col1">
         <div>
           <label htmlFor="SoftwareUsed">Software Used</label>
-          <input type="text" name="SoftwareUsed" id="SoftwareUsed" {...register('SoftwareUsed')}></input>
+          <input type="text" name="SoftwareUsed" id="SoftwareUsed" defaultValue="" {...register('SoftwareUsed')}></input>
           <small className="text-danger">
             {errors?.SoftwareUsed && errors.SoftwareUsed.message}
           </small>
@@ -178,7 +179,7 @@ export default function CreatePage() {
       <div className="Form-row5-col2">
         <div>
           <label htmlFor="RoomNumberForSoftware">Software Room #</label>
-          <input type="text" name="RoomNumberForSoftware" id="RoomNumberForSoftware" {...register('RoomNumberForSoftware')}></input>
+          <input type="text" name="RoomNumberForSoftware" id="RoomNumberForSoftware" defaultValue="" {...register('RoomNumberForSoftware')}></input>
           <small className="text-danger">
             {errors?.RoomNumberForSoftware && errors.RoomNumberForSoftware.message}
           </small>

@@ -48,15 +48,15 @@ Course.init({
         allowNull: false
     },
     CreditHours: {
-        type: DataTypes.INTEGER,
+        type: "VARCHAR(50)",
         allowNull: false
     },
     ContactHours: {
         type: "VARCHAR(250)",
         allowNull: false
     },
-    RequiredFor: {              
-        type: "VARCHAR(2)",
+    Required: {              
+        type: "VARCHAR(50)",
         allowNull: false
     },
     // Need to implement
@@ -77,15 +77,15 @@ Course.init({
         // Will be combined with Outcome attributes
     //},
     Topics: {
-        type: "VARCHAR(250)",
+        type: "VARCHAR(500)",
         allowNull: false        
     },
     Program: {
-        type: "VARCHAR(2)",
+        type: "VARCHAR(50)",
         allowNull: false
     },
     LastUpdated: {
-        type: DataTypes.INTEGER,
+        type: "VARCHAR(50)",
         allowNull: false        
     },
     RoomNumberForSoftware: {

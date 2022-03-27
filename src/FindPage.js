@@ -35,21 +35,22 @@ export default function FindPage() {
                         <option value="Computer Science" id="CS option">Computer Science</option>
                         <option value="Computer Engineering" id="CE option">Computer Engineering</option>
                         <option value="Information Technology" id="IT option">Information Technology</option>
-                        <option value="CyberSecurity" id="CICS option">Cyber Security</option>
+                        <option value="Cybersecurity" id="CICS option">Cybersecurity</option>
                     </select>
                     <small className="text-danger">
                         {errors?.Program && errors.Program.message}
                     </small>
                 </div>
                 <div className="Form-row2-col1">
-                    <label htmlFor="RequiredFor">Program Requirement</label>
-                    <select name="RequiredFor" id="RequiredFor" defaultValue="" {...register('RequiredFor')}>
+                    <label htmlFor="Required">Program Requirement</label>
+                    <select name="Required" id="Required" defaultValue="" {...register('Required')}>
                         <option value="" disabled>Select requirement</option>l
-                        <option value="Elective" id="Elevtive option">Elective</option>
+                        <option value="Elective" id="Elective option">Elective</option>
+                        <option value="Selected Elective" id="Selected elective option">Selected Elective</option>
                         <option value="Required" id="Required option">Required</option>
                     </select>
                     <small className="text-danger">
-                        {errors?.RequiredFor && errors.RequiredFor.message}
+                        {errors?.Required && errors.Required.message}
                     </small>
                 </div>
                 <div className="Form-row3-col1">
