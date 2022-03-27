@@ -5,6 +5,7 @@
   "proxy": "http://localhost:4000",
   "dependencies": {
     "@hookform/resolvers": "^2.8.8",
+    "@react-pdf/renderer": "^2.1.1",
     "@testing-library/jest-dom": "^5.15.0",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",

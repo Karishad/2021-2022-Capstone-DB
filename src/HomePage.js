@@ -1,6 +1,8 @@
 import React, { useEffect, Component } from 'react';
 import axios from "./axios";
-import { Table } from "reactstrap";
+import { Carousel, Table } from "reactstrap";
+import PDFFile from './PDFfile';
+import { PDFDownloadLink } from '@react-pdf/renderer';
 
 class HomePage extends Component {
   //functions go before render(). To call a function, use "this.myfunction" inside the render()
@@ -15,11 +17,15 @@ class HomePage extends Component {
     this.getCourses();
   }
 
-  getCourses= async () =>{
+  getCourses = async () => {
     axios.get('/courses').then(res => {
       console.log(res.data)
       this.setState({ courses: res.data }) // fill state variable "courses" with res.data
     })
+  }
+
+  handleClick = (id) => {
+    console.log('clicked worked on id ' + id)
   }
 
 
@@ -48,11 +54,11 @@ class HomePage extends Component {
           </thead>
           <tbody>
             {this.state.courses.map(course => (
-              <tr key={course.id}>
+              <tr onClick={() => { this.handleClick(course.id) }} key={course.id}>
                 <td>{course.id}</td>
                 <td>{course.CourseNumber}</td>
                 <td>{course.CourseName}</td>
-                <td>{course.Program}</td>              
+                <td>{course.Program}</td>
                 <td>{course.Coordinator}</td>
                 <td>{course.RequiredFor}</td>
                 <td>{course.PreRequisites}</td>
@@ -64,43 +70,30 @@ class HomePage extends Component {
                 <td>{course.LastUpdated}</td>
                 <td>{course.RoomNumberForSoftware}</td>
                 <td>{course.SoftwareUsed}</td>
-                <td><button>Delete</button></td>   
+                <PDFDownloadLink document={<PDFFile id={course.id} CoourseNumber={course.CourseNumber} CourseName={course.CourseName} Program={course.Program} Coordinator={course.Coordinator}
+                RequiredFor={course.RequiredFor} PreRequisites={course.PreRequisites} CourseDescription={course.CourseDescription} CreditHours={course.CreditHours} ContactHours={course.ContactHours}
+                Book={course.Book} Topics={course.Topics} LastUpdated={course.LastUpdated} RoomNumberForSoftware={course.RoomNumberForSoftware} SoftwareUsed={course.SoftwareUsed}/>} fileName="PDF">
+                  {({ loading }) => (loading ? <button>Loading PDF...</button> : <button>Download PDF</button>)}
+                </PDFDownloadLink>
               </tr>
-                       
             ))}
           </tbody>
         </Table>
+
+
       </div>
     )
   }
 }
 
 export default HomePage;
-/*             <div className="Delete">
-                  <input type="button" value="Delete Syllabus"></input>
-                </div>*/
-
-/*
-async getAllCourses() {
-    try {
-      const res = await axios.get('/courses');
-      console.log(res.data);
-      //console.log(res.data[0]); displays first array object
-    } catch (err) {
-      console.error(err);
-    };
-  };
-
-   {this.state.courses.map(course => <p key={course.id}>{course.id}{course.CourseNumber}{course.CourseName}
-        {course.CourseDescription}{course.Coordinator}{course.Book}{course.PreRequisites}{course.CreditHours}
-        {course.ContactHours}{course.RequiredFor}{course.Topics}{course.Program}{course.LastUpdated}{course.RoomNumberForSoftware}
-        {course.SoftwareUsed}</p> )}
-
-        deleteCourse=async(id)=>{
-    let data=await axios.delete(`/${id}`)
-    this.getCourses();
-  }
-
+/* 
+NOTES:
+'<tr onClick={()=>{this.handleClick(course.id)}} key={course.id}>'          
+In the onClick event handler above, if I just put in the handsubmit function itself, like this:
+'<tr onClick={this.handleClick(course.id)} key={course.id}>'  
+it will run automatically when the page is loaded, which is not what I want. So instead I have to add an arrow function that THEN calls the 
+handleCLick function.
 */
 
 

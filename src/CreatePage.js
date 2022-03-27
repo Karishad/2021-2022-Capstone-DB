@@ -46,10 +46,10 @@ export default function CreatePage() {
           <label htmlFor="Program">Program </label>
           <select name="Program" id="Program" defaultValue="" {...register('Program')}>
             <option value="" disabled>Select a program...</option>
-            <option value="CS" id="CS option">Computer Science</option>
-            <option value="CE" id="CE option">Computer Engineering</option>
-            <option value="IT" id="IT option">Information Technology</option>
-            <option value="CICS" id="CICS option">Cyber Security</option>
+            <option value="Computer Science" id="CS option">Computer Science</option>
+            <option value="Computer Engineering" id="CE option">Computer Engineering</option>
+            <option value="Information Technology" id="IT option">Information Technology</option>
+            <option value="CyberSecurity" id="CICS option">Cyber Security</option>
           </select>
           <small className="text-danger">
             {errors?.Program && errors.Program.message}
