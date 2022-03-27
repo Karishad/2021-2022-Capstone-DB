@@ -37,7 +37,7 @@ export const schema = yup.object({
     //Outcome: yup.string().required(),
     //StudentOutcome: yup.string().required(),                          
     CourseDescription: yup.string()
-        .max(250, 'Course description must be 250 characters or less')
+        .max(500, 'Course description must be 500 characters or less')
         .required('This field is required'),
     SoftwareUsed: yup.string()
         .max(250, 'Software used must be 250 characters or less')

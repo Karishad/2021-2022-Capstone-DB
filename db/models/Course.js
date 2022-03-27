@@ -65,7 +65,7 @@ Course.init({
 
     //},
     CourseDescription: {
-        type: "VARCHAR(250)",
+        type: "VARCHAR(500)",
         allowNull: false
     },
     // Need to implement
