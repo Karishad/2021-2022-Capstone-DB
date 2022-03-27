@@ -18,8 +18,10 @@ export default function CreatePage() {
   }
 
   const deleteNode = () => {
-    const node = document.getElementById("StudentOutcome")
-    document.getElementById("Objectives").removeChild(node);
+    const node = document.getElementById("Objectives")
+    if(node.children[2] != null){
+      node.removeChild(node.lastChild);
+    }
   }
 
 
