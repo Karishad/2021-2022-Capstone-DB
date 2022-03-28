@@ -19,6 +19,7 @@ const { Model, DataTypes } = require('sequelize');
     - CourseDescription
     - CombinedWith -> Not needed to implement
     - StudentOutcome
+    - StudentOutcomeConnection
     - Topics
     - LastUpdated
     - RoomNumberForSoftware
@@ -71,7 +72,8 @@ Course.init({
     Outcome3: {
         type: "VARCHAR(500)",
         allowNull: true
-    },Outcome4: {
+    },
+    Outcome4: {
         type: "VARCHAR(500)",
         allowNull: true
     },
@@ -99,7 +101,7 @@ Course.init({
         type: "VARCHAR(500)",
         allowNull: false
     },
-    // Need to implement
+    // Not needed
     //CombinedWith: {
         // Might not be necessary but keep here
     //},
@@ -139,6 +141,42 @@ Course.init({
     },
     StudentOutcome9: {
         type:"VARCHAR(50)",
+        allowNull: true
+    },
+    StudentOutcomeConnection1: {
+        type:"VARCHAR(25)",
+        allowNull: false
+    },
+    StudentOutcomeConnection2: {
+        type:"VARCHAR(25)",
+        allowNull: true
+    },
+    StudentOutcomeConnection3: {
+        type:"VARCHAR(25)",
+        allowNull: true
+    },
+    StudentOutcomeConnection4: {
+        type:"VARCHAR(25)",
+        allowNull: true
+    },
+    StudentOutcomeConnection5: {
+        type:"VARCHAR(25)",
+        allowNull: true
+    },
+    StudentOutcomeConnection6: {
+        type:"VARCHAR(25)",
+        allowNull: true
+    },
+    StudentOutcomeConnection7: {
+        type:"VARCHAR(25)",
+        allowNull: true
+    },
+    StudentOutcomeConnection8: {
+        type:"VARCHAR(25)",
+        allowNull: true
+    },
+    StudentOutcomeConnection9: {
+        type:"VARCHAR(25)",
         allowNull: true
     },
     Topics: {
