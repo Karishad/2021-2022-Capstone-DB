@@ -15,10 +15,10 @@ const { Model, DataTypes } = require('sequelize');
     - CreditHours
     - ContactHours
     - RequiredFor
-    - Outcome -> Need to implement 
+    - Outcome
     - CourseDescription
-    - CombinedWith -> Need to implement
-    - StudentOutcome -> Need to implement
+    - CombinedWith -> Not needed to implement
+    - StudentOutcome
     - Topics
     - LastUpdated
     - RoomNumberForSoftware
@@ -59,11 +59,42 @@ Course.init({
         type: "VARCHAR(50)",
         allowNull: false
     },
-    // Need to implement
-    //Outcome: {
+    Outcome1: {
         // Datatype for multiple Outcomes [1-9]
-
-    //},
+        type: "VARCHAR(500)",
+        allowNull: false
+    },
+    Outcome2: {
+        type: "VARCHAR(500)",
+        allowNull: true
+    },
+    Outcome3: {
+        type: "VARCHAR(500)",
+        allowNull: true
+    },Outcome4: {
+        type: "VARCHAR(500)",
+        allowNull: true
+    },
+    Outcome5: {
+        type: "VARCHAR(500)",
+        allowNull: true
+    },
+    Outcome6: {
+        type: "VARCHAR(500)",
+        allowNull: true
+    },
+    Outcome7: {
+        type: "VARCHAR(500)",
+        allowNull: true
+    },
+    Outcome8: {
+        type: "VARCHAR(500)",
+        allowNull: true
+    },
+    Outcome9: {
+        type: "VARCHAR(500)",
+        allowNull: true
+    },
     CourseDescription: {
         type: "VARCHAR(500)",
         allowNull: false
@@ -72,10 +103,44 @@ Course.init({
     //CombinedWith: {
         // Might not be necessary but keep here
     //},
-    // Need to implement
-    //StudentOutcome: {
-        // Will be combined with Outcome attributes
-    //},
+    // Student outcome will correlate with the different outcomes
+    // For example
+    StudentOutcome1: {
+        type:"VARCHAR(50)",
+        allowNull: false
+    },
+    StudentOutcome2: {
+        type:"VARCHAR(50)",
+        allowNull: true
+    },
+    StudentOutcome3: {
+        type:"VARCHAR(50)",
+        allowNull: true
+    },
+    StudentOutcome4: {
+        type:"VARCHAR(50)",
+        allowNull: true
+    },
+    StudentOutcome5: {
+        type:"VARCHAR(50)",
+        allowNull: true
+    },
+    StudentOutcome6: {
+        type:"VARCHAR(50)",
+        allowNull: true
+    },
+    StudentOutcome7: {
+        type:"VARCHAR(50)",
+        allowNull: true
+    },
+    StudentOutcome8: {
+        type:"VARCHAR(50)",
+        allowNull: true
+    },
+    StudentOutcome9: {
+        type:"VARCHAR(50)",
+        allowNull: true
+    },
     Topics: {
         type: "VARCHAR(500)",
         allowNull: false        
