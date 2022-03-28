@@ -1,16 +1,14 @@
 import React from 'react';
-import { Page, Text, Image, Document, StyleSheet } from '@react-pdf/renderer';
+import { Page, Text, Image, Document, StyleSheet, Font } from '@react-pdf/renderer';
 
-/*
+
 const styles = StyleSheet.create({
-    body: {
-        paddingTop: 35,
-        paddingBottom: 65,
-        paddingHorizontal: 35,
-    },
-    title: {
-        fontSize: 24,
-        textAlign: "center",
+    boldtext: {
+        margin: 12,
+        fontSize: 14,
+        textAlign: "justify",
+        fontFamily: "Times-Roman",
+        fontWeight: "bold"
     },
     text: {
         margin: 12,
@@ -18,47 +16,26 @@ const styles = StyleSheet.create({
         textAlign: "justify",
         fontFamily: "Times-Roman",
     },
-    image: {
-        marginVertical: 15,
-        marginHorizontal: 100,
-    },
-    header: {
-        fontSize: 12,
-        marginBottom: 20,
-        textAlign: "center",
-        color: "grey",
-    },
-    pageNumber: {
-        position: "absolute",
-        fontSize: 12,
-        bottom: 30,
-        left: 0,
-        right: 0,
-        textAlign: "center",
-        color: "grey",
-    },
 })
-*/
+
 const PDFFile = (props) => {
     return (
         <Document>
             <Page>
-                <Text>B.S. {props.Program} , {props.RequiredFor}</Text>
-                <Text>{props.CreditHours}, {props.ContactHours}</Text>
-                <Text>Course Coordinator: {props.Coordinator}</Text>
-                <Text>Textbook: {props.Book}</Text>
-                <Text>Catalog Description: {props.CourseDescription}</Text>
-                <Text>Prerequisite(s): {props.PreRequisites}</Text>
-                <Text>Course Outcomes: Blah blah blah</Text>
-                <Text>Relationship between Course Outcomes and Student Outcomes for {props.Program}:</Text>
-                <Text> -- OUTCOME TABLE GOES HERE</Text>
-            </Page>
-            <Page>
-                <Text> -- OUTCOME TABLE MAY CONTINUE HERE</Text>
-                <Text>Brief list of topics to be covered</Text>
-                <Text>{props.Topics}</Text>
-            <Text 
-            render={({pageNumber, totalPages}) => `${pageNumber}/${totalPages}`} fixed/>
+                <Text style={styles.text}>B.S. {props.Program} </Text>
+                <Text style={styles.boldtext}>{props.CourseNumber} {props.CourseName} ,{props.Required}</Text>
+                <Text style={styles.text}>{props.CreditHours}, {props.ContactHours}</Text>
+                <Text style={styles.text}>Course Coordinator: {props.Coordinator}</Text>
+                <Text style={styles.text}>Textbook: {props.Book}</Text>
+                <Text style={styles.text}>Catalog Description: {props.CourseDescription}</Text>
+                <Text style={styles.text}>Prerequisite(s): {props.PreRequisites}</Text>
+                <Text style={styles.text}>Course Outcomes: Blah blah blah</Text>
+                <Text style={styles.text}>Relationship between Course Outcomes and Student Outcomes for {props.Program}:</Text>
+                <Text style={styles.text}> -- OUTCOME TABLE GOES HERE</Text>
+                <Text style={styles.text}>Brief list of topics to be covered</Text>
+                <Text style={styles.text}>{props.Topics}</Text>
+
+
             </Page>
         </Document>
     )

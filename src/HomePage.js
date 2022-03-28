@@ -60,7 +60,7 @@ class HomePage extends Component {
                 <td>{course.CourseName}</td>
                 <td>{course.Program}</td>
                 <td>{course.Coordinator}</td>
-                <td>{course.RequiredFor}</td>
+                <td>{course.Required}</td>
                 <td>{course.PreRequisites}</td>
                 <td>{course.CourseDescription}</td>
                 <td>{course.CreditHours}</td>
@@ -71,7 +71,7 @@ class HomePage extends Component {
                 <td>{course.RoomNumberForSoftware}</td>
                 <td>{course.SoftwareUsed}</td>
                 <td><PDFDownloadLink document={<PDFFile id={course.id} CoourseNumber={course.CourseNumber} CourseName={course.CourseName} Program={course.Program} Coordinator={course.Coordinator}
-                RequiredFor={course.RequiredFor} PreRequisites={course.PreRequisites} CourseDescription={course.CourseDescription} CreditHours={course.CreditHours} ContactHours={course.ContactHours}
+                Required={course.Required} PreRequisites={course.PreRequisites} CourseDescription={course.CourseDescription} CreditHours={course.CreditHours} ContactHours={course.ContactHours}
                 Book={course.Book} Topics={course.Topics} LastUpdated={course.LastUpdated} RoomNumberForSoftware={course.RoomNumberForSoftware} SoftwareUsed={course.SoftwareUsed}/>} fileName="PDF">
                   {({ loading }) => (loading ? <button>Loading PDF...</button> : <button>Download PDF</button>)}
                 </PDFDownloadLink></td>
