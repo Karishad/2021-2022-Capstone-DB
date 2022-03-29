@@ -34,8 +34,6 @@ const PDFFile = (props) => {
                 <Text style={styles.text}> -- OUTCOME TABLE GOES HERE</Text>
                 <Text style={styles.text}>Brief list of topics to be covered</Text>
                 <Text style={styles.text}>{props.Topics}</Text>
-
-
             </Page>
         </Document>
     )

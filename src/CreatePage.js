@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import { schema } from './schema/addSchema';
@@ -27,23 +27,26 @@ export default function CreatePage() {
   const [RoomNumber, setRoomNumber] = useState('');
   const [Software, setSoftware] = useState('');
 
+  const [Outcome1, setOutcome1] = useState('');
+  const [Outcome2, setOutcome2] = useState('');
+  const [Outcome3, setOutcome3] = useState('');
+  const [Outcome4, setOutcome4] = useState('');
+  const [Outcome5, setOutcome5] = useState('');
+  const [Outcome6, setOutcome6] = useState('');
+  const [Outcome7, setOutcome7] = useState('');
+  const [Outcome8, setOutcome8] = useState('');
+  const [Outcome9, setOutcome9] = useState('');
+
+  const [Student1, setStudent1] = useState('');
+  const [Student2, setStudent2] = useState('');
+  const [Student3, setStudent3] = useState('');
+  const [Student4, setStudent4] = useState('');
+  const [Student5, setStudent5] = useState('');
+  const [Student6, setStudent6] = useState('');
+  const [Student7, setStudent7] = useState('');
+
   const state = {
     pdfpreview: false
-  }
-
-  //I added an ID to the div that contains the outcomes and named it "Objectives".
-  //Duplicates Objective input field and appends it to the parent Objectives div.
-  const copyNode = () => {
-    const node = document.getElementById("StudentOutcome")
-    const clone = node.cloneNode();
-    document.getElementById("Objectives").appendChild(clone);
-  }
-
-  const deleteNode = () => {
-    const node = document.getElementById("Objectives")
-    if (node.children[2] != null) {
-      node.removeChild(node.lastChild);
-    }
   }
 
   const onSubmit = async (req) => {
@@ -61,12 +64,12 @@ export default function CreatePage() {
     <form className="Form-inputs" onSubmit={handleSubmit(onSubmit)}>
 
       <div className="Form-pdf">
-      <PDFFile id={id} CourseNumber={courseNumber} CourseName={courseName} Program={Program} Coordinator={Coordinator}
-                Required={Required} PreRequisites={PreRequisites} CourseDescription={CourseDescription} CreditHours={CreditHours} ContactHours={ContactHours}
-                Book={Book} Topics={Topics} LastUpdated={LastUpdated} RoomNumberForSoftware={RoomNumber} SoftwareUsed={Software}/>
+        <PDFFile id={id} CourseNumber={courseNumber} CourseName={courseName} Program={Program} Coordinator={Coordinator}
+          Required={Required} PreRequisites={PreRequisites} CourseDescription={CourseDescription} CreditHours={CreditHours} ContactHours={ContactHours}
+          Book={Book} Topics={Topics} LastUpdated={LastUpdated} RoomNumberForSoftware={RoomNumber} SoftwareUsed={Software} 
+          Outcome1={Outcome1} Outcome2={Outcome2} Outcome3={Outcome3} Outcome4={Outcome4} Outcome5={Outcome5} Outcome6={Outcome6} Outcome7={Outcome7} Outcome8={Outcome8} Outcome9={Outcome9}
+          Student1={Student1} Student2={Student2} Student3={Student3} Student4={Student4} Student5={Student5} Student6={Student6} Student7={Student7}/>
       </div>
-
-
 
       <div className="Form-row1-col1">
         <div>
@@ -161,27 +164,49 @@ export default function CreatePage() {
         </div>
       </div>
 
-      <div className="Form-row3-col1">
-        <div>
-          <label htmlFor="Course Outcome">Course Outcome</label>
-          <input type="text" name="Course Outcome" id="Course Outcome" defaultValue="blank"></input>
+      <div className="Form-row3-col12">
+        <div id="CourseObjectives">
+          <label htmlFor="CourseOutcome">Course Outcomes</label>
+          <input type="text" name="CourseOutcome1" id="CourseOutcome1" {...register('Outcome1')} onChange={e => setOutcome1(e.target.value)}></input>
+          <input type="text" name="CourseOutcome2" id="CourseOutcome2" {...register('Outcome2')} onChange={e => setOutcome2(e.target.value)}></input>
+          <input type="text" name="CourseOutcome3" id="CourseOutcome3" {...register('Outcome3')} onChange={e => setOutcome3(e.target.value)}></input>
+          <input type="text" name="CourseOutcome4" id="CourseOutcome4" {...register('Outcome4')} onChange={e => setOutcome4(e.target.value)}></input>
+          <input type="text" name="CourseOutcome5" id="CourseOutcome5" {...register('Outcome5')} onChange={e => setOutcome5(e.target.value)}></input>
+          <input type="text" name="CourseOutcome6" id="CourseOutcome6" {...register('Outcome6')} onChange={e => setOutcome6(e.target.value)}></input>
+          <input type="text" name="CourseOutcome7" id="CourseOutcome7" {...register('Outcome7')} onChange={e => setOutcome7(e.target.value)}></input>
+          <input type="text" name="CourseOutcome8" id="CourseOutcome8" {...register('Outcome8')} onChange={e => setOutcome8(e.target.value)}></input>
+          <input type="text" name="CourseOutcome9" id="CourseOutcome9" {...register('Outcome9')} onChange={e => setOutcome9(e.target.value)}></input>
         </div>
       </div>
 
-      <div className="Form-row3-col2" id="Form-row3-col2">
-        <div id="Objectives">
-          <label htmlFor="StudentOutcome">Student Outcome</label>
-          <input type="text" name="StudentOutcome" id="StudentOutcome" defaultValue="blank"></input>
-        </div>
-        <div className="ObjectiveButton">
-          <input type="button" value="Add Objective" onClick={copyNode}></input>
-        </div>
-        <div className="ObjectiveDeleteButton">
-          <input type="button" value="Delete Objective" onClick={deleteNode}></input>
+      <div className="Form-row4-col1" id="Form-row4-col1">
+        <div id="CourseObjectiveConnections">
+          <label htmlFor="StudentOutcome">Course Outcome</label>
+          <input type="text" name="StudentOutcomeConnection1" id="StudentOutcomeConnection1" {...register('StudentOutcomeConnection1')} onChange={e => setStudent1(e.target.value)}></input>
+          <input type="text" name="StudentOutcomeConnection2" id="StudentOutcomeConnection2" {...register('StudentOutcomeConnection2')} onChange={e => setStudent2(e.target.value)}></input>
+          <input type="text" name="StudentOutcomeConnection3" id="StudentOutcomeConnection3" {...register('StudentOutcomeConnection3')} onChange={e => setStudent3(e.target.value)}></input>
+          <input type="text" name="StudentOutcomeConnection4" id="StudentOutcomeConnection4" {...register('StudentOutcomeConnection4')} onChange={e => setStudent4(e.target.value)}></input>
+          <input type="text" name="StudentOutcomeConnection5" id="StudentOutcomeConnection5" {...register('StudentOutcomeConnection5')} onChange={e => setStudent5(e.target.value)}></input>
+          <input type="text" name="StudentOutcomeConnection6" id="StudentOutcomeConnection6" {...register('StudentOutcomeConnection6')} onChange={e => setStudent6(e.target.value)}></input>
+          <input type="text" name="StudentOutcomeConnection7" id="StudentOutcomeConnection7" {...register('StudentOutcomeConnection7')} onChange={e => setStudent7(e.target.value)}></input>
+
         </div>
       </div>
 
-      <div className="Form-row4-col12">
+      <div className="Form-row4-col2" id="Form-row4-col2">
+        <div id="StudentObjectives">
+          <label htmlFor="StudentOutcome">Student Outcomes</label>
+          <input type="text" name="StudentOutcome1" id="StudentOutcome1" {...register('StudentOutcome1')}></input>
+          <input type="text" name="StudentOutcome2" id="StudentOutcome2" {...register('StudentOutcome2')}></input>
+          <input type="text" name="StudentOutcome3" id="StudentOutcome3" {...register('StudentOutcome3')}></input>
+          <input type="text" name="StudentOutcome4" id="StudentOutcome4" {...register('StudentOutcome4')}></input>
+          <input type="text" name="StudentOutcome5" id="StudentOutcome5" {...register('StudentOutcome5')}></input>
+          <input type="text" name="StudentOutcome6" id="StudentOutcome6" {...register('StudentOutcome6')}></input>
+          <input type="text" name="StudentOutcome7" id="StudentOutcome7" {...register('StudentOutcome7')}></input>
+        </div>
+      </div>
+
+      <div className="Form-row5-col12">
         <div>
           <label htmlFor="CourseDescription">Course Description</label>
           <input type="text" name="CourseDescription" id="CourseDescription" {...register('CourseDescription')} onChange={e => setCourseDescrition(e.target.value)}></input>
@@ -191,7 +216,7 @@ export default function CreatePage() {
         </div>
       </div>
 
-      <div className="Form-row5-col1">
+      <div className="Form-row6-col1">
         <div>
           <label htmlFor="SoftwareUsed">Software Used</label>
           <input type="text" name="SoftwareUsed" id="SoftwareUsed" defaultValue="" {...register('SoftwareUsed')} onChange={e => setSoftware(e.target.value)}></input>
@@ -201,7 +226,7 @@ export default function CreatePage() {
         </div>
       </div>
 
-      <div className="Form-row5-col2">
+      <div className="Form-row6-col2">
         <div>
           <label htmlFor="RoomNumberForSoftware">Software Room #</label>
           <input type="text" name="RoomNumberForSoftware" id="RoomNumberForSoftware" defaultValue="" {...register('RoomNumberForSoftware')} onChange={e => setRoomNumber(e.target.value)}></input>
@@ -211,7 +236,7 @@ export default function CreatePage() {
         </div>
       </div>
 
-      <div className="Form-row6-col1">
+      <div className="Form-row7-col1">
         <div>
           <label htmlFor="LastUpdated">Semester Last Updated </label>
           <input type="text" name="LastUpdated" id="LastUpdated" {...register('LastUpdated')} onChange={e => setLastUpdated(e.target.value)}></input>
@@ -227,7 +252,7 @@ export default function CreatePage() {
       </div>
     </form>
 
-    
+
   )
 }
 
@@ -263,5 +288,29 @@ I can optionally add in placeholder text for my select if I put text in between 
 It shows predefined selections but the user can type in anything they want.
 
 <img className="pdf-image" src={space} alt="" />
+*/
+
+/*
+//I added an ID to the div that contains the outcomes and named it "Objectives".
+  //Duplicates Objective input field and appends it to the parent Objectives div.
+  const copyNode = () => {
+    const node = document.getElementById("CourseOutcome")
+    const clone = node.cloneNode();
+    document.getElementById("CourseObjectives").appendChild(clone);
+  }
+
+  const deleteNode = () => {
+    const node = document.getElementById("CourseObjectives")
+    if (node.children[2] != null) {
+      node.removeChild(node.lastChild);
+    }
+  }
+  
+<div className="ObjectiveButton">
+          <input type="button" value="Add Objective" onClick={copyNode}></input>
+        </div>
+        <div className="ObjectiveDeleteButton">
+          <input type="button" value="Delete Objective" onClick={deleteNode}></input>
+        </div>
 */
 

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { useForm } from "react-hook-form";
 import axios from './axios';
-import { Table } from "reactstrap";
+
 
 export default function FindPage() {
     const { register, handleSubmit, formState: { errors }, reset } = useForm({

@@ -116,38 +116,44 @@ be sorted in the order I declare them in the CreatePage.js file.*/
     grid-column-end: 3;
 }
 
-.Form-inputs .Form-row3-col1 {
+.Form-inputs .Form-row3-col12 {
+    /*border: 5px solid lightseagreen;*/
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+.Form-inputs .Form-row4-col2 {
+    /*border: 5px solid lightcoral;*/
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
+.Form-inputs .Form-row4-col1 {
     /*border: 5px solid lightcoral;*/
     grid-column-start: 1;
     grid-column-end: 2;
 }
 
-.Form-inputs .Form-row3-col2 {
-    /*border: 5px solid lightseagreen;*/
-    grid-column-start: 2;
-    grid-column-end: 3;
-}
 
-
-.Form-inputs .Form-row4-col12 {
+.Form-inputs .Form-row5-col12 {
     /*border: 5px solid orange;*/
     grid-column-start: 1;
     grid-column-end: 3;
 }
 
-.Form-inputs .Form-row5-col1 {
+.Form-inputs .Form-row6-col1 {
     /*border: 5px solid palevioletred;*/
     grid-column-start: 1;
     grid-column-end: 2;
 }
 
-.Form-inputs .Form-row5-col2 {
+.Form-inputs .Form-row6-col2 {
     /*border: 5px solid greenyellow;*/
     grid-column-start: 2;
     grid-column-end: 3;
 }
 
-.Form-inputs .Form-row6-col1 {
+.Form-inputs .Form-row7-col1 {
     /*border: 5px solid peru;*/
     grid-column-start: 1;
     grid-column-end: 2;
