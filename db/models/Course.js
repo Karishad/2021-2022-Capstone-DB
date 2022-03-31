@@ -108,39 +108,39 @@ Course.init({
     // Student outcome will correlate with the different outcomes
     // For example
     StudentOutcome1: {
-        type:"VARCHAR(50)",
+        type:"VARCHAR(500)",
         allowNull: false
     },
     StudentOutcome2: {
-        type:"VARCHAR(50)",
+        type:"VARCHAR(500)",
         allowNull: true
     },
     StudentOutcome3: {
-        type:"VARCHAR(50)",
+        type:"VARCHAR(500)",
         allowNull: true
     },
     StudentOutcome4: {
-        type:"VARCHAR(50)",
+        type:"VARCHAR(500)",
         allowNull: true
     },
     StudentOutcome5: {
-        type:"VARCHAR(50)",
+        type:"VARCHAR(500)",
         allowNull: true
     },
     StudentOutcome6: {
-        type:"VARCHAR(50)",
+        type:"VARCHAR(500)",
         allowNull: true
     },
     StudentOutcome7: {
-        type:"VARCHAR(50)",
+        type:"VARCHAR(500)",
         allowNull: true
     },
     StudentOutcome8: {
-        type:"VARCHAR(50)",
+        type:"VARCHAR(500)",
         allowNull: true
     },
     StudentOutcome9: {
-        type:"VARCHAR(50)",
+        type:"VARCHAR(500)",
         allowNull: true
     },
     StudentOutcomeConnection1: {

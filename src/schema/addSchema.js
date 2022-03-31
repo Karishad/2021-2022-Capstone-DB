@@ -34,11 +34,90 @@ export const schema = yup.object({
     Topics: yup.string()
         .max(500, 'Topics must be 500 characters or less')
         .required('This field is required'),
-    //Outcome: yup.string().required(),
-    //StudentOutcome: yup.string().required(),                          
+    Outcome1: yup.string()
+        .max(500, 'Outcome must be 500 characters or less')
+        .required('This field is required'),   
+    Outcome2: yup.string()
+        .max(500, 'Outcome must be 500 characters or less')
+        .optional(),      
+    Outcome3: yup.string()
+        .max(500, 'Outcome must be 500 characters or less')
+        .optional(),     
+    Outcome4: yup.string()
+        .max(500, 'Outcome must be 500 characters or less')
+        .optional(),    
+    Outcome5: yup.string()
+        .max(500, 'Outcome must be 500 characters or less')
+        .optional(),      
+    Outcome6: yup.string()
+        .max(500, 'Outcome must be 500 characters or less')
+        .optional(),  
+    Outcome7: yup.string()
+        .max(500, 'Outcome must be 500 characters or less')
+        .optional(),
+    Outcome8: yup.string()
+        .max(500, 'Outcome must be 500 characters or less')
+        .optional(),
+    Outcome9: yup.string()
+        .max(500, 'Outcome must be 500 characters or less')
+        .optional(),
     CourseDescription: yup.string()
         .max(500, 'Course description must be 500 characters or less')
         .required('This field is required'),
+    StudentOutcome1: yup.string()
+        .max(500, 'Student outcome must be 50 characters or less')
+        .required('This field is required'),
+    StudentOutcome2: yup.string()
+        .max(500, 'Student outcome must be 500 characters or less')
+        .optional(),
+    StudentOutcome3: yup.string()
+        .max(500, 'Student outcome must be 500 characters or less')
+        .optional(),
+    StudentOutcome4: yup.string()
+        .max(500, 'Student outcome must be 500 characters or less')
+        .optional(),
+    StudentOutcome5: yup.string()
+        .max(500, 'Student outcome must be 500 characters or less')
+        .optional(),
+    StudentOutcome6: yup.string()
+        .max(500, 'Student outcome must be 500 characters or less')
+        .optional(),
+    StudentOutcome7: yup.string()
+        .max(500, 'Student outcome must be 500 characters or less')
+        .optional(),
+    StudentOutcome8: yup.string()
+        .max(500, 'Student outcome must be 500 characters or less')
+        .optional(),
+    StudentOutcome9: yup.string()
+        .max(500, 'Student outcome must be 500 characters or less')
+        .optional(),
+    StudentOutcomeConnection1: yup.string()
+        .max(25, 'Student outcome connection must be 25 characters or less')
+        .required('This field is required'),
+    StudentOutcomeConnection2: yup.string()
+        .max(25, 'Student outcome connection must be 25 characters or less')
+        .optional(),
+    StudentOutcomeConnection3: yup.string()
+        .max(25, 'Student outcome connection must be 25 characters or less')
+        .optional(),
+    StudentOutcomeConnection4: yup.string()
+        .max(25, 'Student outcome connection must be 25 characters or less')
+        .optional(),
+    StudentOutcomeConnection5: yup.string()
+        .max(25, 'Student outcome connection must be 25 characters or less')
+        .optional(),
+    StudentOutcomeConnection6: yup.string()
+        .max(25, 'Student outcome connection must be 25 characters or less')
+        .optional(),
+    StudentOutcomeConnection7: yup.string()
+        .max(25, 'Student outcome connection must be 25 characters or less')
+        .optional(),
+    StudentOutcomeConnection8: yup.string()
+        .max(25, 'Student outcome connection must be 25 characters or less')
+        .optional(),
+    StudentOutcomeConnection9: yup.string()
+        .max(25, 'Student outcome connection must be 25 characters or less')
+        .optional(),
     SoftwareUsed: yup.string()
         .max(250, 'Software used must be 250 characters or less')
         .optional(),

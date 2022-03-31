@@ -28,11 +28,23 @@ class HomePage extends Component {
   }
 
   getCourses = async () => {
-    axios.get('/courses').then(res => {
+    try {
+      const res = await axios.get('/courses');
       console.log(res.data)
       this.setState({ courses: res.data }) // fill state variable "courses" with res.data
-    })
-  }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  deleteCourse = async () => {
+    try {
+      const res = await axios.delete('/deletecourse');
+      console.log(res.data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   handleClick = (id) => {
     console.log('clicked worked on id ' + id)
@@ -55,7 +67,7 @@ class HomePage extends Component {
           <Table sx={{ minWidth: 1500 }} >
             <TableHead>
               <TableRow>
-                <TableCell align="left ">ID</TableCell>
+                <TableCell align="left">ID</TableCell>
                 <TableCell align="left">Course #</TableCell>
                 <TableCell align="left" sx={{width:300}}>Course Name</TableCell>
                 <TableCell align="left">Program</TableCell>
@@ -90,7 +102,7 @@ class HomePage extends Component {
             </TableHead>
             <TableBody>
               {this.state.courses.map(course => (
-                <TableRow>
+                <TableRow key={course.id}>
                   <TableCell align="left">{course.id}</TableCell>
                   <TableCell align="left">{course.CourseNumber}</TableCell>
                   <TableCell align="left">{course.CourseName}</TableCell>
