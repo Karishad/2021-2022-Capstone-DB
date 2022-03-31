@@ -62,7 +62,8 @@ app.post('/findcoursebyid', async (req, res) => {
 });
 
 //delete course by id
-app.delete('/deletecourse', async (req, res) => {
+app.post('/deletecourse', async (req, res) => {
+  console.log(req.body);
   const course = await Course.findOne({ where: {id: req.body.id }});
   if (course) {
     await Course.destroy({ where: { id: req.body.id }});
@@ -72,3 +73,14 @@ app.delete('/deletecourse', async (req, res) => {
     res.send(`Could not find course with id ${req.body.id}`);
   }
 });
+
+/*app.delete('/deletecourse', async (req, res) => {
+  const course = await Course.findOne({ where: {id: req.body.id }});
+  if (course) {
+    await Course.destroy({ where: { id: req.body.id }});
+    res.send("Deleted course");
+  }
+  else {
+    res.send(`Could not find course with id ${req.body.id}`);
+  }
+});*/

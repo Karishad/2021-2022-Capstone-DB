@@ -37,13 +37,15 @@ class HomePage extends Component {
     }
   };
 
-  deleteCourse = async () => {
+  deleteCourse = async (id) => {
+    //console.log(id);
     try {
-      const res = await axios.delete('/deletecourse');
+      const res = await axios.post('/deletecourse', id);
       console.log(res.data);
     } catch (err) {
       console.log(err);
     }
+    this.getCourses();
   };
 
   handleClick = (id) => {
@@ -142,7 +144,7 @@ class HomePage extends Component {
                     Student4={course.StudentOutcomeConnection4} Student5={course.StudentOutcomeConnection5} Student6={course.StudentOutcomeConnection6} Student7={course.StudentOutcomeConnection7}
                   />} fileName="PDF">
                     {({ loading }) => (loading ? <button>Loading PDF...</button> : <button>Download PDF</button>)}
-                  </PDFDownloadLink></TableCell>
+                  </PDFDownloadLink><button onClick={() => {this.deleteCourse({id:course.id})}}>Delete</button></TableCell>
                 </TableRow>))}
             </TableBody>
           </Table>
