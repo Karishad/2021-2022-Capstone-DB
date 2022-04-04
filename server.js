@@ -44,7 +44,7 @@ app.post('/findcourse', async (req, res) => {
     where: {
       [Op.or]: [
         {Program: req.body.Program},
-        {RequiredFor: req.body.RequiredFor},
+        {Required: req.body.Required},
         {CourseNumber: req.body.CourseNumber},
         {Coordinator: req.body.Coordinator},
         {CourseName: req.body.CourseName},

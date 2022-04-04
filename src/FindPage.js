@@ -7,7 +7,7 @@ export default function FindPage() {
     const { register, handleSubmit, formState: { errors }, reset } = useForm({
         defaultValues: {
             Program: "",
-            RequiredFor: "",
+            Required: "",
             CourseNumber: "",
             Coordinator: "",
             CourseName: ""
