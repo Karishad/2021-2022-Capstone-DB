@@ -21,9 +21,9 @@ const styles = StyleSheet.create({
 const PDFFile = (props) => {
     return (
         <Document>
-            <Page>
+            <Page size="A4" style={styles.page}>
                 <Text style={styles.text}>B.S. {props.Program} </Text>
-                <Text style={styles.boldtext}>{props.CourseNumber} {props.CourseName} ,{props.Required}</Text>
+                <Text style={styles.boldtext}>{props.CourseNumber} {props.CourseName} {props.Required}</Text>
                 <Text style={styles.text}>{props.CreditHours}, {props.ContactHours}</Text>
                 <Text style={styles.text}>Course Coordinator: {props.Coordinator}</Text>
                 <Text style={styles.text}>Textbook: {props.Book}</Text>
