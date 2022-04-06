@@ -55,7 +55,7 @@ class HomePage extends Component {
   render() {
     return (
       <div className='mainpage'>
-        <TableContainer 
+        <TableContainer className='Table'
         component={Paper}
         sx={{
           //border: "1px solid",
@@ -111,7 +111,7 @@ class HomePage extends Component {
                   <TableCell align="left">{course.Program}</TableCell>
                   <TableCell align="left">{course.Coordinator}</TableCell>
                   <TableCell align="left">{course.Required}</TableCell>
-                  <TableCell align="left">{course.PreRequisites}</TableCell>
+                  <TableCell align="left">{course.Prerequisites}</TableCell>
                   <TableCell align="left">{course.CourseDescription}</TableCell>
                   <TableCell align="left">{course.CreditHours}</TableCell>
                   <TableCell align="left">{course.ContactHours}</TableCell>
@@ -137,7 +137,7 @@ class HomePage extends Component {
                   <TableCell align="left">{course.StudentOutcomeConnection6}</TableCell>
                   <TableCell align="left">{course.StudentOutcomeConnection7}</TableCell>
                   <TableCell><PDFDownloadLink document={<PDFFile id={course.id} CoourseNumber={course.CourseNumber} CourseName={course.CourseName} Program={course.Program} Coordinator={course.Coordinator}
-                    Required={course.Required} PreRequisites={course.PreRequisites} CourseDescription={course.CourseDescription} CreditHours={course.CreditHours} ContactHours={course.ContactHours}
+                    Required={course.Required} Prerequisites={course.Prerequisites} CourseDescription={course.CourseDescription} CreditHours={course.CreditHours} ContactHours={course.ContactHours}
                     Book={course.Book} Topics={course.Topics} LastUpdated={course.LastUpdated} RoomNumberForSoftware={course.RoomNumberForSoftware} SoftwareUsed={course.SoftwareUsed}
                     Outcome1={course.Outcome1} Outcome2={course.Outcome2} Outcome3={course.Outcome3} Outcome4={course.Outcome4} Outcome5={course.Outcome5} Outcome6={course.Outcome6} Outcome7={course.Outcome7}
                     Outcome8={course.Outcome8} Outcome9={course.Outcome9} Student1={course.StudentOutcomeConnection1} Student2={course.StudentOutcomeConnection2} Student3={course.StudentOutcomeConnection3}

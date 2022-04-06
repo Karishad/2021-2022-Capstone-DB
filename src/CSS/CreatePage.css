@@ -1,5 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400;500;600;700&family=Lora:ital,wght@1,400;1,500;1,600;1,700&family=Montserrat:wght@500&family=Varela+Round&display=swap");
 
+/*
+.outer{
+    padding: 10px;
+    padding-top: 20px;
+    padding-bottom: 15px;
+    background-color: #E5DBAE;
+    height: 100%;
+}
+*/
 
 .Form-inputs {
     /*background-color: yellow;*/
@@ -34,6 +43,9 @@
     position: relative;
     /* position specifies the positioning method for the HTML element. "relative" means that the element
     will react to any padding you give it */
+
+    /*border: 2px solid #000;*/
+    /*background-color: white;*/
 }
 
 /* any .div in the Createpage container will have these properties.

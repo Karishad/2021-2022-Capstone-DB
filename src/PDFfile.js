@@ -28,7 +28,7 @@ const PDFFile = (props) => {
                 <Text style={styles.text}>Course Coordinator: {props.Coordinator}</Text>
                 <Text style={styles.text}>Textbook: {props.Book}</Text>
                 <Text style={styles.text}>Catalog Description: {props.CourseDescription}</Text>
-                <Text style={styles.text}>Prerequisite(s): {props.PreRequisites}</Text>
+                <Text style={styles.text}>Prerequisite(s): {props.Prerequisites}</Text>
                 <Text style={styles.text}>Course Outcomes: Blah blah blah</Text>
                 <Text style={styles.text}>Relationship between Course Outcomes and Student Outcomes for {props.Program}:</Text>
                 <Text style={styles.text}> -- OUTCOME TABLE GOES HERE</Text>
