@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { Component, useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import axios from './axios';
 
@@ -16,7 +16,7 @@ import { Tab } from '@material-ui/core';
 
 
 export default function FindPage() {
-    const { register, handleSubmit, formState: { errors }, reset } = useForm({
+    const { register, handleSubmit, formState: { errors }, getValues } = useForm({
         defaultValues: {
             Program: "",
             Required: "",
@@ -27,13 +27,30 @@ export default function FindPage() {
     });
 
     const [courses, setcourses] = useState([]);
+    const [change, setchange] = useState(false);
+    const [values, setvalues] = useState({
+        Program: "",
+        Required: "",
+        CourseNumber: "",
+        Coordinator: "",
+        CourseName: ""
+    });
     let initcourses = [] //array to initially hold res.data
 
+
+    useEffect( () => {
+        if(values.Program != "" || values.Required != "" || values.CourseNumber != "" || values.Coordinator != "" || values.CourseName != "") {
+            onSubmit(values);
+            setchange(false);
+        }
+    }, [change]);  
+
     const onSubmit = async (req) => {
-        console.log(req);
+        //console.log(req);
         try {
             const res = await axios.post('/findcourse', req);
             console.log(res.data);
+            setvalues(getValues());
             /* IDK why but if I straight up do setcourses(res.data) it won't work. I have to pass in res.data to another array variable (initcourses=res.data).THEN 
             do setcourses(initcourses) for it to work.*/
             initcourses = res.data
@@ -41,15 +58,16 @@ export default function FindPage() {
         } catch (err) {
             console.error(err);
         };
-        reset();
     };
 
     const deleteCourse = async (id) => {
         //console.log(id);
         try {
+            setchange(true);
             const res = await axios.post('/deletecourse', id);
             console.log(res.data);
-            //window.location.reload(true); //refresh the page after deleting a syllabus
+          
+            //window.location.reload(true); //refresh the page after deleting a syllabuss
         } catch (err) {
             console.log(err);
         }
