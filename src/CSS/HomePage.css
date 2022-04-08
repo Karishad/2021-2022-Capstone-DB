@@ -1,15 +1,35 @@
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400;500;600;700&family=Lora:ital,wght@1,400;1,500;1,600;1,700&family=Montserrat:wght@500&family=Varela+Round&display=swap");
-s .Homepage {
-    /*background-color: yellow;*/
-    //font-family: adobeJenson;
-    src: url(../fonts/adobe-jenson.otf);
+.mainpage {
+    padding: 10px;
+    padding-top: 20px;
+    padding-bottom: 15px;
+    border: 1px solid black;
+    height: 100%;
+    background-color: #E5DBAE;
 }
 
-.Homepage .mainpage {
-    padding: 10px;
-    border: 1px solid black;
-    height: 500px;
+.mainpage button{
+    font-family: "Montserrat", sans-serif;
+    font-size: 18px;
+    padding: 10px 20px;
+    border: 2px solid #000;
+    margin: 10px;
+    background: none;
+    cursor: pointer;
+    letter-spacing: 4px; /* spacing between letters on the button */
+
+    width: 215px;
+    height: 80px;
+    border-radius: 4px; /* Determines the curve of the edges on the button*/
+    box-shadow: inset 0 0 0 0 #f9e506;
+    transition: ease-out 0.3s;
+    outline: none;
 }
+
+.mainpage .Table {
+    border: 2px solid #000;
+}
+
 
 
 

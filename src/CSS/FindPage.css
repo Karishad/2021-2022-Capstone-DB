@@ -7,14 +7,13 @@
     font-weight: 100;
     font-size: 18px;
 
-    display: grid;
+    /*display: grid;*/
 
     /* if you specify fr, it means that that section will adjust when you resize the browser, if you put px, it doesnt resize*/
-    grid-template-columns: 1fr; /* creates 2 equally divided sections on the page. You also could type "repeat(2, 1fr)". Where 2 is the # of sections and 1fr is the size*/
-    grid-template-rows: 1fr; /* 3 row sections with top and bottom fixed*/
-    gap: 10px; /* determines gap between section boxes. Excludes the edges touching the side of that object's container*/
+    /*grid-template-columns: 1fr; /* creates 2 equally divided sections on the page. You also could type "repeat(2, 1fr)". Where 2 is the # of sections and 1fr is the size*/
+    /*grid-template-rows: 1fr; /* 3 row sections with top and bottom fixed*/
+    /*gap: 10px; /* determines gap between section boxes. Excludes the edges touching the side of that object's container*/
 
-    padding: 20px 800px;
     /* 
     space between that element and its outer container. Has up to 4 parameters in order: top, right, bottom, left. 
     If only 3 arguments, 1st is for top, 2nd for left and right, and 3rd for bottom.
@@ -30,6 +29,23 @@
     position: relative;
     /* position specifies the positioning method for the HTML element. "relative" means that the element
     will react to any padding you give it */
+}
+
+.Findpage-form .Tablewrap{
+    padding: 10px;
+    padding-top: 20px;
+    padding-bottom: 15px;
+    border: 2px solid black;
+    height: 100%;
+    background-color: #E5DBAE;
+}
+
+.Findpage-form .Table {
+    border: 2px solid black;
+}
+
+.Findpage-form .form{
+    padding: 20px 800px;
 }
 
 .Findpage-form div {
