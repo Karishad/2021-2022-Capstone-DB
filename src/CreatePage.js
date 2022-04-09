@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import { schema } from './schema/addSchema';
@@ -6,6 +6,15 @@ import axios from './axios';
 import space from '../src/images/space.png';
 import PDFFile from './PDFfile';
 
+/*
+  Table styling for PDF Preview, incomplete
+
+const styles = StyleSheet.create({
+  OutcomePadding: {
+    
+  },
+})
+*/
 export default function CreatePage() {
   const { register, handleSubmit, formState: { errors }, reset } = useForm({
     resolver: yupResolver(schema)
@@ -48,7 +57,7 @@ export default function CreatePage() {
   const state = {
     pdfpreview: false
   }
-
+  
   const onSubmit = async (req) => {
     console.log(req);
     try {
@@ -65,7 +74,8 @@ export default function CreatePage() {
       <form className="Form-inputs" onSubmit={handleSubmit(onSubmit)}>
 
         <div className="Form-pdf">
-          <PDFFile id={id} CourseNumber={courseNumber} CourseName={courseName} Program={Program} Coordinator={Coordinator}
+          <PDFFile id={id}
+          CourseNumber={courseNumber} CourseName={courseName} Program={Program} Coordinator={Coordinator}
             Required={Required} Prerequisites={Prerequisites} CourseDescription={CourseDescription} CreditHours={CreditHours} ContactHours={ContactHours}
             Book={Book} Topics={Topics} LastUpdated={LastUpdated} RoomNumberForSoftware={RoomNumber} SoftwareUsed={Software}
             Outcome1={Outcome1} Outcome2={Outcome2} Outcome3={Outcome3} Outcome4={Outcome4} Outcome5={Outcome5} Outcome6={Outcome6} Outcome7={Outcome7} Outcome8={Outcome8} Outcome9={Outcome9}
