@@ -27,7 +27,7 @@ export const schema = yup.object({
         .required('This field is required'),                       
     Book: yup.string()
         .max(250, 'Book(s) must be 250 characters or less')
-        .required('This field is required'),
+        .optional(),
     CreditHours: yup.string()
         .max(50, 'Credit hours must be 50 characters or less')
         .required('This field is required'),         
