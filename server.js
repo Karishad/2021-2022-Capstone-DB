@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const sequelize = require('./db/database');
 const Course = require('./db/models/Course');
-const { Op } = require("sequelize");
+//const { Op } = require("sequelize");
 
 const PORT = 4000;
 
@@ -39,17 +39,30 @@ app.post('/courses', async (req, res) => {
 
 //find courses
 app.post('/findcourse', async (req, res) => {
-  console.log(req.body);
+  //Create new object with non-empty search parameters from req
+  let searchterms = {};
+
+  if(req.body.Program != '') {
+    searchterms.Program = req.body.Program;
+  }
+  if(req.body.Required != '') {
+    searchterms.Required = req.body.Required;
+  }
+  if(req.body.CourseNumber != '') {
+    searchterms.CourseNumber = req.body.CourseNumber;
+  }
+  if(req.body.Coordinator != '') {
+    searchterms.Coordinator = req.body.Coordinator;
+  }
+  if(req.body.CourseName != '') {
+    searchterms.CourseName = req.body.CourseName;
+  }
+  
+  console.log(searchterms);
+
+  //Use searchterms object to find courses with all matching properties
   const courses = await Course.findAll({
-    where: {
-      [Op.or]: [
-        {Program: req.body.Program},
-        {Required: req.body.Required},
-        {CourseNumber: req.body.CourseNumber},
-        {Coordinator: req.body.Coordinator},
-        {CourseName: req.body.CourseName},
-      ]
-    }
+    where: searchterms
   });
   res.send(courses);
 });
