@@ -16,6 +16,8 @@ const styles = StyleSheet.create({
 })
 */
 export default function CreatePage() {
+
+  //init react-hook-form with yup validation schema
   const { register, handleSubmit, formState: { errors }, reset } = useForm({
     resolver: yupResolver(schema)
   });
@@ -58,6 +60,7 @@ export default function CreatePage() {
     pdfpreview: false
   }
   
+  //request to create course on submit then reset form
   const onSubmit = async (req) => {
     console.log(req);
     try {

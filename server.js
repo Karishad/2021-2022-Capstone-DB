@@ -8,7 +8,6 @@ const PORT = 4000;
 
 // Connect database
 sequelize.sync({ alter: true }).then(console.log('DB connecting...'));
-//sequelize.sync({ force: true }).then(console.log('DB connecting...'));
 try {
   sequelize.authenticate().then(console.log('DB connected.'));
 } catch (error) {
@@ -75,6 +74,9 @@ app.post('/findcoursebyid', async (req, res) => {
 });
 
 //delete course by id
+//Why POST for delete: 
+//  axios did not play nice with DELETE while passing an object though Postman testing worked
+//  one option is to put course id in the url as a parameter so DELETE can work
 app.post('/deletecourse', async (req, res) => {
   console.log(req.body);
   const course = await Course.findOne({ where: {id: req.body.id }});
@@ -86,14 +88,3 @@ app.post('/deletecourse', async (req, res) => {
     res.send(`Could not find course with id ${req.body.id}`);
   }
 });
-
-/*app.delete('/deletecourse', async (req, res) => {
-  const course = await Course.findOne({ where: {id: req.body.id }});
-  if (course) {
-    await Course.destroy({ where: { id: req.body.id }});
-    res.send("Deleted course");
-  }
-  else {
-    res.send(`Could not find course with id ${req.body.id}`);
-  }
-});*/

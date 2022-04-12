@@ -1,4 +1,4 @@
-import React, { useEffect, Component } from 'react';
+import React, { Component } from 'react';
 import axios from "./axios";
 //import { Carousel, Table } from "reactstrap";
 import PDFFile from './PDFfile';
@@ -27,6 +27,7 @@ class HomePage extends Component {
     this.getCourses();
   }
 
+  //request to fetch all courses in db
   getCourses = async () => {
     try {
       const res = await axios.get('/courses');
@@ -37,6 +38,7 @@ class HomePage extends Component {
     }
   };
 
+  //request to delete course then fetch all courses to update listing
   deleteCourse = async (id) => {
     //console.log(id);
     try {

@@ -1,4 +1,4 @@
-import React, { Component, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import axios from './axios';
 
@@ -16,6 +16,8 @@ import { Tab } from '@material-ui/core';
 
 
 export default function FindPage() {
+
+    //init react-hook-form; default all field values to empty strings to simplify api logic
     const { register, handleSubmit, formState: { errors }, getValues } = useForm({
         defaultValues: {
             Program: "",
@@ -26,9 +28,10 @@ export default function FindPage() {
         }
     });
 
-    const [courses, setcourses] = useState([]);
-    const [change, setchange] = useState(false);
-    const [values, setvalues] = useState({
+    //states for dynamically resubmitting query after a delete
+    const [courses, setcourses] = useState([]);     //search results
+    const [change, setchange] = useState(false);    //boolean for tracking delete
+    const [values, setvalues] = useState({          //grabs field values after first submission to use for resubmission
         Program: "",
         Required: "",
         CourseNumber: "",
@@ -37,37 +40,38 @@ export default function FindPage() {
     });
     let initcourses = [] //array to initially hold res.data
 
-
+    //rerender page only when course is deleted; resubmit query
     useEffect( () => {
+        //if statement to prevent rerender after navigating to Find
         if(values.Program != "" || values.Required != "" || values.CourseNumber != "" || values.Coordinator != "" || values.CourseName != "") {
             onSubmit(values);
             setchange(false);
         }
     }, [change]);  
 
+    //request to find courses after submission
     const onSubmit = async (req) => {
         //console.log(req);
         try {
             const res = await axios.post('/findcourse', req);
             console.log(res.data);
-            setvalues(getValues());
+            setvalues(getValues());     //save field values for dynamic resubmission
             /* IDK why but if I straight up do setcourses(res.data) it won't work. I have to pass in res.data to another array variable (initcourses=res.data).THEN 
             do setcourses(initcourses) for it to work.*/
             initcourses = res.data
-            setcourses(initcourses)
+            setcourses(initcourses)     //save courses
         } catch (err) {
             console.error(err);
         };
     };
 
+    //request to delete course
     const deleteCourse = async (id) => {
         //console.log(id);
         try {
             setchange(true);
             const res = await axios.post('/deletecourse', id);
             console.log(res.data);
-          
-            //window.location.reload(true); //refresh the page after deleting a syllabuss
         } catch (err) {
             console.log(err);
         }
