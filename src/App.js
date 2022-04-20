@@ -1,9 +1,10 @@
 import React from 'react';
 import NavBar from './components/NavBar';
 import BlackNav from './components/BlackNav';
-import CreatePage from './CreatePage';
-import FindPage from './FindPage';
-import HomePage from './HomePage';
+import CreatePage from './pages/CreatePage';
+import FindPage from './pages/FindPage';
+import HomePage from './pages/HomePage';
+import UpdatePage from './pages/UpdatePage';
 import './CSS/App.css'
 import './CSS/HomePage.css'
 import './CSS/CreatePage.css'
@@ -28,8 +29,18 @@ export default function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/create" element={<CreatePage />} />
           <Route path="/find" element={<FindPage />} />
+          <Route path="/update/:id" element={<UpdatePage /> } />
         </Routes>
       </div>
     </Router>
   );
-  } 
+} 
+
+/*function Child() {
+  let { id } = useParams();
+
+  return (
+    <UpdatePage />
+  );
+}*/
+

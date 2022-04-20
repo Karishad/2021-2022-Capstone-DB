@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
-import axios from "./axios";
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import axios from "../axios";
 //import { Carousel, Table } from "reactstrap";
-import PDFFile from './PDFfile';
+import PDFFile from '../PDFfile';
 import { PDFDownloadLink } from '@react-pdf/renderer';
 
 import Table from '@mui/material/Table';
@@ -11,152 +12,158 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { Tab } from '@material-ui/core';
+//import { Tab } from '@material-ui/core';
 
+export default function HomePage() {
 
-class HomePage extends Component {
-  //functions go before render(). To call a function, use "this.myfunction" inside the render()
+  //states for dynamically fetching courses after delete or update
+  const [courses, setcourses] = useState([]);     //stores course
+  const [change, setchange] = useState(false);    //boolean for tracking delete or update
 
-  state = {
-    courses: [] //courses has an empty array that will get filled by res.data
-  }
+  const navigate = useNavigate();
 
-  //constructor for useState
-  constructor() {
-    super() //must call super() every time we want to use State. super() gives us a lot of methods into our class?
-    this.getCourses();
-  }
+  //rerender page only when course is deleted or updated; fetch all courses again
+  useEffect( () => {
+    async function getCourses() {
+      let initcourses = [];
+      try {
+        const res = await axios.get('/courses');
+        console.log(res.data);
+        initcourses = res.data;
+        setcourses(initcourses);
 
-  //request to fetch all courses in db
-  getCourses = async () => {
+      } catch(err) {
+        console.log(err);
+      }
+    }
+    
+    getCourses();
+    setchange(false);
+  }, [change]);
+
+  //request to delete course
+  const deleteCourse = async (id) => {
     try {
-      const res = await axios.get('/courses');
-      console.log(res.data)
-      this.setState({ courses: res.data }) // fill state variable "courses" with res.data
+        const res = await axios.post('/deletecourse', id);
+        console.log(res.data);
+        setchange(true);
     } catch (err) {
-      console.log(err);
+        console.log(err);
     }
   };
 
-  //request to delete course then fetch all courses to update listing
-  deleteCourse = async (id) => {
-    //console.log(id);
-    try {
-      const res = await axios.post('/deletecourse', id);
-      console.log(res.data);
-    } catch (err) {
-      console.log(err);
-    }
-    this.getCourses();
+  const handleUpdate = (course) => {
+
+    navigate(`/update/${course.id}`, {
+      state: {
+        course: course
+      }
+    });
   };
 
-  handleClick = (id) => {
-    console.log('clicked worked on id ' + id)
-  }
+return (
+  <div className='mainpage'>
+    <TableContainer className='Table'
+    component={Paper}
+    sx={{
+      //border: "1px solid",
+      //marginRight:'auto',
+      //marginLeft:'auto',
+      //width:"100%",
+      width:"max-context"
+      //overflow:"auto"
+    }}
+    >
+      <Table sx={{ minWidth: 1500 }} >
+        <TableHead>
+          <TableRow>
+            <TableCell align="left">ID</TableCell>
+            <TableCell align="left">Course #</TableCell>
+            <TableCell align="left" sx={{width:300}}>Course Name</TableCell>
+            <TableCell align="left">Program</TableCell>
+            <TableCell align="left">Coordinator</TableCell>
+            <TableCell align="left">Required</TableCell>
+            <TableCell align="left">Prerequisites</TableCell>
+            <TableCell align="left">Course Description</TableCell>
+            <TableCell align="left">Credit Hours</TableCell>
+            <TableCell align="left">Contact Hours</TableCell>
+            <TableCell align="left">Book</TableCell>
+            <TableCell align="left">Topics</TableCell>
+            <TableCell align="left">LastUpdated</TableCell>
+            <TableCell align="left">Room #</TableCell>
+            <TableCell align="left">Software Used</TableCell>
+            <TableCell align="left">Outcome 1</TableCell>
+            <TableCell align="left">Outcome 2</TableCell>
+            <TableCell align="left">Outcome 3</TableCell>
+            <TableCell align="left">Outcome 4</TableCell>
+            <TableCell align="left">Outcome 5</TableCell>
+            <TableCell align="left">Outcome 6</TableCell>
+            <TableCell align="left">Outcome 7</TableCell>
+            <TableCell align="left">Outcome 8</TableCell>
+            <TableCell align="left">Outcome 9</TableCell>
+            <TableCell align="left">Student 1</TableCell>
+            <TableCell align="left">Student 2</TableCell>
+            <TableCell align="left">Student 3</TableCell>
+            <TableCell align="left">Student 4</TableCell>
+            <TableCell align="left">Student 5</TableCell>
+            <TableCell align="left">Student 6</TableCell>
+            <TableCell align="left">Student 7</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {courses.map(course => (
+            <TableRow key={course.id}>
+              <TableCell align="left">{course.id}</TableCell>
+              <TableCell align="left">{course.CourseNumber}</TableCell>
+              <TableCell align="left">{course.CourseName}</TableCell>
+              <TableCell align="left">{course.Program}</TableCell>
+              <TableCell align="left">{course.Coordinator}</TableCell>
+              <TableCell align="left">{course.Required}</TableCell>
+              <TableCell align="left">{course.Prerequisites}</TableCell>
+              <TableCell align="left">{course.CourseDescription}</TableCell>
+              <TableCell align="left">{course.CreditHours}</TableCell>
+              <TableCell align="left">{course.ContactHours}</TableCell>
+              <TableCell align="left">{course.Book}</TableCell>
+              <TableCell align="left">{course.Topics}</TableCell>
+              <TableCell align="left">{course.LastUpdated}</TableCell>
+              <TableCell align="left">{course.RoomNumberForSoftware}</TableCell>
+              <TableCell align="left">{course.SoftwareUsed}</TableCell>
+              <TableCell align="left">{course.Outcome1}</TableCell>
+              <TableCell align="left">{course.Outcome2}</TableCell>
+              <TableCell align="left">{course.Outcome3}</TableCell>
+              <TableCell align="left">{course.Outcome4}</TableCell>
+              <TableCell align="left">{course.Outcome5}</TableCell>
+              <TableCell align="left">{course.Outcome6}</TableCell>
+              <TableCell align="left">{course.Outcome7}</TableCell>
+              <TableCell align="left">{course.Outcome8}</TableCell>
+              <TableCell align="left">{course.Outcome9}</TableCell>
+              <TableCell align="left">{course.StudentOutcomeConnection1}</TableCell>
+              <TableCell align="left">{course.StudentOutcomeConnection2}</TableCell>
+              <TableCell align="left">{course.StudentOutcomeConnection3}</TableCell>
+              <TableCell align="left">{course.StudentOutcomeConnection4}</TableCell>
+              <TableCell align="left">{course.StudentOutcomeConnection5}</TableCell>
+              <TableCell align="left">{course.StudentOutcomeConnection6}</TableCell>
+              <TableCell align="left">{course.StudentOutcomeConnection7}</TableCell>
+              <TableCell><PDFDownloadLink document={<PDFFile id={course.id} CoourseNumber={course.CourseNumber} CourseName={course.CourseName} Program={course.Program} Coordinator={course.Coordinator}
+                Required={course.Required} Prerequisites={course.Prerequisites} CourseDescription={course.CourseDescription} CreditHours={course.CreditHours} ContactHours={course.ContactHours}
+                Book={course.Book} Topics={course.Topics} LastUpdated={course.LastUpdated} RoomNumberForSoftware={course.RoomNumberForSoftware} SoftwareUsed={course.SoftwareUsed}
+                Outcome1={course.Outcome1} Outcome2={course.Outcome2} Outcome3={course.Outcome3} Outcome4={course.Outcome4} Outcome5={course.Outcome5} Outcome6={course.Outcome6} Outcome7={course.Outcome7}
+                Outcome8={course.Outcome8} Outcome9={course.Outcome9} Student1={course.StudentOutcomeConnection1} Student2={course.StudentOutcomeConnection2} Student3={course.StudentOutcomeConnection3}
+                Student4={course.StudentOutcomeConnection4} Student5={course.StudentOutcomeConnection5} Student6={course.StudentOutcomeConnection6} Student7={course.StudentOutcomeConnection7}
+              />} fileName="PDF">
+                {({ loading }) => (loading ? <button>Loading PDF...</button> : <button>Download PDF</button>)}</PDFDownloadLink>
+              <button onClick={() => {deleteCourse({id:course.id})}}>Delete</button>
+              <button onClick={() => {handleUpdate(course)}}>Update</button></TableCell>
+            </TableRow>))}
+        </TableBody>
+      </Table>
+    </TableContainer>
+  </div>
+);
 
-  render() {
-    return (
-      <div className='mainpage'>
-        <TableContainer className='Table'
-        component={Paper}
-        sx={{
-          //border: "1px solid",
-          //marginRight:'auto',
-          //marginLeft:'auto',
-          //width:"100%",
-          width:"max-context"
-          //overflow:"auto"
-        }}
-        >
-          <Table sx={{ minWidth: 1500 }} >
-            <TableHead>
-              <TableRow>
-                <TableCell align="left">ID</TableCell>
-                <TableCell align="left">Course #</TableCell>
-                <TableCell align="left" sx={{width:300}}>Course Name</TableCell>
-                <TableCell align="left">Program</TableCell>
-                <TableCell align="left">Coordinator</TableCell>
-                <TableCell align="left">Required</TableCell>
-                <TableCell align="left">Prerequisites</TableCell>
-                <TableCell align="left">Course Description</TableCell>
-                <TableCell align="left">Credit Hours</TableCell>
-                <TableCell align="left">Contact Hours</TableCell>
-                <TableCell align="left">Book</TableCell>
-                <TableCell align="left">Topics</TableCell>
-                <TableCell align="left">LastUpdated</TableCell>
-                <TableCell align="left">Room #</TableCell>
-                <TableCell align="left">Software Used</TableCell>
-                <TableCell align="left">Outcome 1</TableCell>
-                <TableCell align="left">Outcome 2</TableCell>
-                <TableCell align="left">Outcome 3</TableCell>
-                <TableCell align="left">Outcome 4</TableCell>
-                <TableCell align="left">Outcome 5</TableCell>
-                <TableCell align="left">Outcome 6</TableCell>
-                <TableCell align="left">Outcome 7</TableCell>
-                <TableCell align="left">Outcome 8</TableCell>
-                <TableCell align="left">Outcome 9</TableCell>
-                <TableCell align="left">Student 1</TableCell>
-                <TableCell align="left">Student 2</TableCell>
-                <TableCell align="left">Student 3</TableCell>
-                <TableCell align="left">Student 4</TableCell>
-                <TableCell align="left">Student 5</TableCell>
-                <TableCell align="left">Student 6</TableCell>
-                <TableCell align="left">Student 7</TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {this.state.courses.map(course => (
-                <TableRow key={course.id}>
-                  <TableCell align="left">{course.id}</TableCell>
-                  <TableCell align="left">{course.CourseNumber}</TableCell>
-                  <TableCell align="left">{course.CourseName}</TableCell>
-                  <TableCell align="left">{course.Program}</TableCell>
-                  <TableCell align="left">{course.Coordinator}</TableCell>
-                  <TableCell align="left">{course.Required}</TableCell>
-                  <TableCell align="left">{course.Prerequisites}</TableCell>
-                  <TableCell align="left">{course.CourseDescription}</TableCell>
-                  <TableCell align="left">{course.CreditHours}</TableCell>
-                  <TableCell align="left">{course.ContactHours}</TableCell>
-                  <TableCell align="left">{course.Book}</TableCell>
-                  <TableCell align="left">{course.Topics}</TableCell>
-                  <TableCell align="left">{course.LastUpdated}</TableCell>
-                  <TableCell align="left">{course.RoomNumberForSoftware}</TableCell>
-                  <TableCell align="left">{course.SoftwareUsed}</TableCell>
-                  <TableCell align="left">{course.Outcome1}</TableCell>
-                  <TableCell align="left">{course.Outcome2}</TableCell>
-                  <TableCell align="left">{course.Outcome3}</TableCell>
-                  <TableCell align="left">{course.Outcome4}</TableCell>
-                  <TableCell align="left">{course.Outcome5}</TableCell>
-                  <TableCell align="left">{course.Outcome6}</TableCell>
-                  <TableCell align="left">{course.Outcome7}</TableCell>
-                  <TableCell align="left">{course.Outcome8}</TableCell>
-                  <TableCell align="left">{course.Outcome9}</TableCell>
-                  <TableCell align="left">{course.StudentOutcomeConnection1}</TableCell>
-                  <TableCell align="left">{course.StudentOutcomeConnection2}</TableCell>
-                  <TableCell align="left">{course.StudentOutcomeConnection3}</TableCell>
-                  <TableCell align="left">{course.StudentOutcomeConnection4}</TableCell>
-                  <TableCell align="left">{course.StudentOutcomeConnection5}</TableCell>
-                  <TableCell align="left">{course.StudentOutcomeConnection6}</TableCell>
-                  <TableCell align="left">{course.StudentOutcomeConnection7}</TableCell>
-                  <TableCell><PDFDownloadLink document={<PDFFile id={course.id} CoourseNumber={course.CourseNumber} CourseName={course.CourseName} Program={course.Program} Coordinator={course.Coordinator}
-                    Required={course.Required} Prerequisites={course.Prerequisites} CourseDescription={course.CourseDescription} CreditHours={course.CreditHours} ContactHours={course.ContactHours}
-                    Book={course.Book} Topics={course.Topics} LastUpdated={course.LastUpdated} RoomNumberForSoftware={course.RoomNumberForSoftware} SoftwareUsed={course.SoftwareUsed}
-                    Outcome1={course.Outcome1} Outcome2={course.Outcome2} Outcome3={course.Outcome3} Outcome4={course.Outcome4} Outcome5={course.Outcome5} Outcome6={course.Outcome6} Outcome7={course.Outcome7}
-                    Outcome8={course.Outcome8} Outcome9={course.Outcome9} Student1={course.StudentOutcomeConnection1} Student2={course.StudentOutcomeConnection2} Student3={course.StudentOutcomeConnection3}
-                    Student4={course.StudentOutcomeConnection4} Student5={course.StudentOutcomeConnection5} Student6={course.StudentOutcomeConnection6} Student7={course.StudentOutcomeConnection7}
-                  />} fileName="PDF">
-                    {({ loading }) => (loading ? <button>Loading PDF...</button> : <button>Download PDF</button>)}
-                  </PDFDownloadLink><button onClick={() => {this.deleteCourse({id:course.id})}}>Delete</button></TableCell>
-                </TableRow>))}
-            </TableBody>
-          </Table>
-        </TableContainer>
-      </div>
-    )
-  }
 }
 
-export default HomePage;
+
 /* 
 NOTES:
 '<tr onClick={()=>{this.handleClick(course.id)}} key={course.id}>'          

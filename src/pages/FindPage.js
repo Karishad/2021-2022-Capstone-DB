@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import axios from './axios';
+import axios from '../axios';
 
-import PDFFile from './PDFfile';
+import PDFFile from '../PDFfile';
 import { PDFDownloadLink } from '@react-pdf/renderer';
 
 import Table from '@mui/material/Table';
@@ -12,7 +12,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { Tab } from '@material-ui/core';
+//import { Tab } from '@material-ui/core';
 
 
 export default function FindPage() {
@@ -43,7 +43,7 @@ export default function FindPage() {
     //rerender page only when course is deleted; resubmit query
     useEffect( () => {
         //if statement to prevent rerender after navigating to Find
-        if(values.Program != "" || values.Required != "" || values.CourseNumber != "" || values.Coordinator != "" || values.CourseName != "") {
+        if(values.Program !== "" || values.Required !== "" || values.CourseNumber !== "" || values.Coordinator !=="" || values.CourseName !== "") {
             onSubmit(values);
             setchange(false);
         }

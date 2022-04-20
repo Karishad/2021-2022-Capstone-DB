@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
-import { schema } from './schema/addSchema';
-import axios from './axios';
-import space from '../src/images/space.png';
-import PDFFile from './PDFfile';
+import { schema } from '../schema/addSchema';
+import axios from '../axios';
+import PDFFile from '../PDFfile';
 
 /*
   Table styling for PDF Preview, incomplete
@@ -56,9 +55,9 @@ export default function CreatePage() {
   const [Student6, setStudent6] = useState('');
   const [Student7, setStudent7] = useState('');
 
-  const state = {
+  /*const state = {
     pdfpreview: false
-  }
+  }*/
   
   //request to create course on submit then reset form
   const onSubmit = async (req) => {

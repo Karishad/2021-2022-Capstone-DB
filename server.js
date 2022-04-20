@@ -73,6 +73,15 @@ app.post('/findcoursebyid', async (req, res) => {
   res.send(course);
 });
 
+//update fields for a course by id
+app.post('/update/:id', async (req, res) => {
+  console.log(req.body);
+  await Course.update(req.body, {
+    where: {
+      id: req.params.id
+  }});
+})
+
 //delete course by id
 //Why POST for delete: 
 //  axios did not play nice with DELETE while passing an object though Postman testing worked
