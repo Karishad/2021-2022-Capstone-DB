@@ -20,7 +20,7 @@ export default function HomePage() {
   const [courses, setcourses] = useState([]);     //stores course
   const [change, setchange] = useState(false);    //boolean for tracking delete or update
 
-  const navigate = useNavigate();
+  const navigate = useNavigate();                 //to move to another page
 
   //rerender page only when course is deleted or updated; fetch all courses again
   useEffect( () => {
@@ -52,8 +52,8 @@ export default function HomePage() {
     }
   };
 
+  //navigate to Update page with course data to prepopulate form
   const handleUpdate = (course) => {
-
     navigate(`/update/${course.id}`, {
       state: {
         course: course

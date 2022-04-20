@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import axios from '../axios';
 
@@ -27,6 +28,8 @@ export default function FindPage() {
             CourseName: ""
         }
     });
+
+    const navigate = useNavigate();                 //to move to another page
 
     //states for dynamically resubmitting query after a delete
     const [courses, setcourses] = useState([]);     //search results
@@ -76,6 +79,15 @@ export default function FindPage() {
             console.log(err);
         }
     };
+
+    //navigate to Update page with course data to prepopulate form
+    const handleUpdate = (course) => {
+        navigate(`/update/${course.id}`, {
+          state: {
+            course: course
+          }
+        });
+      };
 
     return (
         <div className="Findpage-form">
@@ -218,8 +230,9 @@ export default function FindPage() {
                                         Outcome8={course.Outcome8} Outcome9={course.Outcome9} Student1={course.StudentOutcomeConnection1} Student2={course.StudentOutcomeConnection2} Student3={course.StudentOutcomeConnection3}
                                         Student4={course.StudentOutcomeConnection4} Student5={course.StudentOutcomeConnection5} Student6={course.StudentOutcomeConnection6} Student7={course.StudentOutcomeConnection7}
                                     />} fileName="PDF">
-                                        {({ loading }) => (loading ? <button>Loading PDF...</button> : <button>Download PDF</button>)}
-                                    </PDFDownloadLink><button onClick={() => {deleteCourse({id:course.id})}}>Delete</button></TableCell>
+                                        {({ loading }) => (loading ? <button>Loading PDF...</button> : <button>Download PDF</button>)}</PDFDownloadLink>
+                                        <button onClick={() => {deleteCourse({id:course.id})}}>Delete</button>
+                                        <button onClick={() => {handleUpdate(course)}}>Update</button></TableCell>
                                 </TableRow>))}
                         </TableBody>
                     </Table>
@@ -229,84 +242,7 @@ export default function FindPage() {
 
     )
 }
-/*
-export default function FindPage() {
-    const { register, handleSubmit, formState: { errors }, reset } = useForm({
-        defaultValues: {
-            Program: "",
-            RequiredFor: "",
-            CourseNumber: "",
-            Coordinator: "",
-            CourseName: ""
-        }
-    });
 
-    const onSubmit = async (req) => {
-        console.log(req);
-        try {
-            const res = await axios.post('/findcourse', req);
-            console.log(res.data);
-        } catch (err) {
-            console.error(err);
-        };
-        reset();
-    };
-
-    return (
-        <div className="Findpage-form">
-            <form onSubmit={handleSubmit(onSubmit)}>
-                <div className="Form-row1-col1">
-                    <label htmlFor="Program">Program </label>
-                    <select name="Program" id="Program" {...register('Program')}>
-                        <option value="" disabled>Select a program...</option>
-                        <option value="CS" id="CS option">Computer Science</option>
-                        <option value="CE" id="CE option">Computer Engineering</option>
-                        <option value="IT" id="IT option">Information Technology</option>
-                        <option value="CICS" id="CICS option">Cyber Security</option>
-                    </select>
-                    <small className="text-danger">
-                        {errors?.Program && errors.Program.message}
-                    </small>
-                </div>
-                <div className="Form-row2-col1">
-                    <label htmlFor="RequiredFor">Program Requirement</label>
-                    <select name="RequiredFor" id="RequiredFor" defaultValue="" {...register('RequiredFor')}>
-                        <option value="" disabled>Select requirement</option>l
-                        <option value="Elective" id="Elevtive option">Elective</option>
-                        <option value="Required" id="Required option">Required</option>
-                    </select>
-                    <small className="text-danger">
-                        {errors?.RequiredFor && errors.RequiredFor.message}
-                    </small>
-                </div>
-                <div className="Form-row3-col1">
-                    <label htmlFor="CourseNumber">Course #</label>
-                    <input type="text" name="CourseNumber" id="CourseNumber" {...register('CourseNumber')}></input>
-                    <small className="text-danger">
-                        {errors?.CourseNumber && errors.CourseNumber.message}
-                    </small>
-                </div>
-                <div className="Form-row4-col1">
-                    <label htmlFor="Coordinator">Coordinator </label>
-                    <input type="text" name="Coordinator" id="Coordinator" {...register('Coordinator')}></input>
-                    <small className="text-danger">
-                        {errors?.Coordinator && errors.Coordinator.message}
-                    </small>
-                </div>
-                <div className="Form-row5-col1">
-                    <label htmlFor="CourseName">Course Name </label>
-                    <input type="text" name="CourseName" id="CourseName" {...register('CourseName')}></input>
-                    <small className="text-danger">
-                        {errors?.CourseName && errors.CourseName.message}
-                    </small>
-                </div>
-                <button type="submit">Query</button>
-            </form>
-        </div>
-
-    )
-}
-*/
 
 /*
 --HTML attribute "for" changes--
