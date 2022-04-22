@@ -75,14 +75,14 @@ export default function CreatePage() {
     <div className='outer'>
       <form className="Form-inputs" onSubmit={handleSubmit(onSubmit)}>
 
-        <div className="Form-pdf">
+        {/* <div className="Form-pdf">
           <PDFFile id={id}
           CourseNumber={courseNumber} CourseName={courseName} Program={Program} Coordinator={Coordinator}
             Required={Required} Prerequisites={Prerequisites} CourseDescription={CourseDescription} CreditHours={CreditHours} ContactHours={ContactHours}
             Book={Book} Topics={Topics} LastUpdated={LastUpdated} RoomNumberForSoftware={RoomNumber} SoftwareUsed={Software}
             Outcome1={Outcome1} Outcome2={Outcome2} Outcome3={Outcome3} Outcome4={Outcome4} Outcome5={Outcome5} Outcome6={Outcome6} Outcome7={Outcome7} Outcome8={Outcome8} Outcome9={Outcome9}
             Student1={Student1} Student2={Student2} Student3={Student3} Student4={Student4} Student5={Student5} Student6={Student6} Student7={Student7} />
-        </div>
+        </div> */}
 
         <div className="Form-row1-col1">
           <div>

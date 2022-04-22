@@ -22,12 +22,13 @@
     /* causes the page to use the grid layout defined below */
     display: grid;
 
+
     /* if you specify fr, it means that that section will adjust when you resize the browser, if you put px, it doesnt resize*/
-    grid-template-columns: 1fr 1fr 1fr 1fr; /* creates 2 equally divided sections on the page. You also could type "repeat(2, 1fr)". Where 2 is the # of sections and 1fr is the size*/
+    /*grid-template-columns: 1fr 1fr 1fr 1fr; /* creates 2 equally divided sections on the page. You also could type "repeat(2, 1fr)". Where 2 is the # of sections and 1fr is the size*/
     grid-template-rows: 1fr; /* 3 row sections with top and bottom fixed*/
     gap: 10px; /* determines gap between section boxes. Excludes the edges touching the side of that object's container*/
 
-    padding: 20px;
+    padding: 20px 150px;
     /* 
     space between that element and its outer container. Has up to 4 parameters in order: top, right, bottom, left. 
     If only 3 arguments, 1st is for top, 2nd for left and right, and 3rd for bottom.
@@ -52,7 +53,7 @@
 So in this instance this effects every input field since I am surrounding every HTML 
 input form element with a div. */
 .Form-inputs div {
-    position: relative;
+    /*position: relative;*/
     padding: 10px;
     /*border: 1px solid black;*/
 }
@@ -61,7 +62,7 @@ input form element with a div. */
 go on top. This makes the form look even*/
 .Form-inputs input {
     width: 100%;
-    position: relative;
+    /* position: relative; */
     /*outline: 0; /* removes rectangle outline when you click on the input field */
     /*border: 0; /* causes the input box to disappear */
     /*border-bottom: 2px solid #9b9b9b; /* causes only the bottom of the input box to appear */
@@ -180,6 +181,7 @@ be sorted in the order I declare them in the CreatePage.js file.*/
 .Form-inputs .Form-pdf {
     overflow: auto;
     height: 80vh;
+    width: 100vh;
     border: 5px solid pink;
     grid-column-start: 3;
     grid-column-end: 5;
@@ -187,6 +189,7 @@ be sorted in the order I declare them in the CreatePage.js file.*/
     grid-row-start: 1;
     grid-row-end: 8; /* I only declared 1 row in the grid above. IDK why but me specifying 8 makes the PDF on the right even with the left side form. */
     padding-top: 20px; /* extra padding on the top to avoid the UNT logo*/
+    justify-content: center;
 }
 
 .pdf-image {
@@ -207,6 +210,18 @@ be sorted in the order I declare them in the CreatePage.js file.*/
 
 .Form-inputs small{
     color: red;
+}
+
+#CourseObjectives input{
+    margin-bottom: 10px;
+}
+
+#CourseObjectiveConnections input{
+    margin-bottom: 10px;
+}
+
+#StudentObjectives input{
+    margin-bottom: 10px;
 }
 
 /*
