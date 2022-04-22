@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import { useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import axios from '../axios';
@@ -41,7 +41,7 @@ export default function FindPage() {
         Coordinator: "",
         CourseName: ""
     });
-    let initcourses = [] //array to initially hold res.data
+    let initcourses = useRef([]); //array to initially hold res.data
 
     //rerender page only when course is deleted; resubmit query
     useEffect( () => {
@@ -52,9 +52,9 @@ export default function FindPage() {
         }
     }, [change]);  
 
+
     //request to find courses after submission
     const onSubmit = async (req) => {
-        //console.log(req);
         try {
             const res = await axios.post('/findcourse', req);
             console.log(res.data);
@@ -70,7 +70,6 @@ export default function FindPage() {
 
     //request to delete course
     const deleteCourse = async (id) => {
-        //console.log(id);
         try {
             setchange(true);
             const res = await axios.post('/deletecourse', id);
