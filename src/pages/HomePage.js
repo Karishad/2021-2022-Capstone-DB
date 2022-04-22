@@ -144,7 +144,7 @@ return (
               <TableCell align="left">{course.StudentOutcomeConnection5}</TableCell>
               <TableCell align="left">{course.StudentOutcomeConnection6}</TableCell>
               <TableCell align="left">{course.StudentOutcomeConnection7}</TableCell>
-              <TableCell><PDFDownloadLink document={<PDFFile id={course.id} CoourseNumber={course.CourseNumber} CourseName={course.CourseName} Program={course.Program} Coordinator={course.Coordinator}
+              <TableCell><PDFDownloadLink document={<PDFFile id={course.id} CourseNumber={course.CourseNumber} CourseName={course.CourseName} Program={course.Program} Coordinator={course.Coordinator}
                 Required={course.Required} Prerequisites={course.Prerequisites} CourseDescription={course.CourseDescription} CreditHours={course.CreditHours} ContactHours={course.ContactHours}
                 Book={course.Book} Topics={course.Topics} LastUpdated={course.LastUpdated} RoomNumberForSoftware={course.RoomNumberForSoftware} SoftwareUsed={course.SoftwareUsed}
                 Outcome1={course.Outcome1} Outcome2={course.Outcome2} Outcome3={course.Outcome3} Outcome4={course.Outcome4} Outcome5={course.Outcome5} Outcome6={course.Outcome6} Outcome7={course.Outcome7}
@@ -152,8 +152,8 @@ return (
                 Student4={course.StudentOutcomeConnection4} Student5={course.StudentOutcomeConnection5} Student6={course.StudentOutcomeConnection6} Student7={course.StudentOutcomeConnection7}
               />} fileName="PDF">
                 {({ loading }) => (loading ? <button>Loading PDF...</button> : <button>Download PDF</button>)}</PDFDownloadLink>
-              <button onClick={() => {deleteCourse({id:course.id})}}>Delete</button>
-              <button onClick={() => {handleUpdate(course)}}>Update</button></TableCell>
+              <button onClick={() => {handleUpdate(course)}}>Update</button>
+              <button onClick={() => {deleteCourse({id:course.id})}}>Delete</button></TableCell>
             </TableRow>))}
         </TableBody>
       </Table>
