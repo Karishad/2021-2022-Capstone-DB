@@ -231,8 +231,8 @@ export default function FindPage() {
                                         Student4={course.StudentOutcomeConnection4} Student5={course.StudentOutcomeConnection5} Student6={course.StudentOutcomeConnection6} Student7={course.StudentOutcomeConnection7}
                                     />} fileName="PDF">
                                         {({ loading }) => (loading ? <button>Loading PDF...</button> : <button>Download PDF</button>)}</PDFDownloadLink>
-                                        <button onClick={() => {deleteCourse({id:course.id})}}>Delete</button>
-                                        <button onClick={() => {handleUpdate(course)}}>Update</button></TableCell>
+                                        <button onClick={() => {handleUpdate(course)}}>Update</button>
+                                        <button onClick={() => {deleteCourse({id:course.id})}}>Delete</button></TableCell>
                                 </TableRow>))}
                         </TableBody>
                     </Table>
