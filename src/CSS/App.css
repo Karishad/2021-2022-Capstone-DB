@@ -59,6 +59,7 @@ li{
 .site-title {
     display: flex;
     justify-content: left;
+    min-width: 950px;
 }
 
 .websiteName {
