@@ -150,7 +150,7 @@ return (
                 Outcome1={course.Outcome1} Outcome2={course.Outcome2} Outcome3={course.Outcome3} Outcome4={course.Outcome4} Outcome5={course.Outcome5} Outcome6={course.Outcome6} Outcome7={course.Outcome7}
                 Outcome8={course.Outcome8} Outcome9={course.Outcome9} Student1={course.StudentOutcomeConnection1} Student2={course.StudentOutcomeConnection2} Student3={course.StudentOutcomeConnection3}
                 Student4={course.StudentOutcomeConnection4} Student5={course.StudentOutcomeConnection5} Student6={course.StudentOutcomeConnection6} Student7={course.StudentOutcomeConnection7}
-              />} fileName="PDF">
+              />} fileName={course.CourseNumber + " " + course.CourseName + " syllabus"}>
                 {({ loading }) => (loading ? <button>Loading PDF...</button> : <button>Download PDF</button>)}</PDFDownloadLink>
               <button onClick={() => {handleUpdate(course)}}>Update</button>
               <button onClick={() => {deleteCourse({id:course.id})}}>Delete</button></TableCell>
