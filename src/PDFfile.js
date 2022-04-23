@@ -53,7 +53,8 @@ const PDFFile = (props) => {
                 <Text style={styles.title}>CSCE {props.CourseNumber} {props.CourseName}</Text>
                 <Text style={styles.header}>Instructor Information</Text>
                 <Text style={styles.text}>Instructor Name: {props.Coordinator}</Text>
-                <Text style={styles.boldtext}>{props.CourseNumber} {props.CourseName} {props.Required}</Text>
+                <Text style={styles.text}>Course Number: {props.CourseNumber}</Text>
+                <Text style={styles.text}>Degree Value: {props.Required}</Text>
                 <Text style={styles.text}>Office Hours: {props.ContactHours}</Text>                
                 <Text style={styles.header}>Welcome to UNT!</Text>
                 <Text style={styles.text}>As members of the UNT community, we have all made a commitment to be part of an
@@ -81,7 +82,7 @@ const PDFFile = (props) => {
                 <Text style={styles.listItem}>9. {props.Outcome9}</Text>
                 <Text style={styles.header}>Materials</Text>
                 <Text style={styles.text}>Textbook: {props.Book}</Text>
-                <Text style={styles.header}>Relationship between Course Outcomes and Student Outcomes for {props.Program}:</Text>
+                <Text break style={styles.header}>Relationship between Course Outcomes and Student Outcomes for {props.Program}:</Text>
                 <Text style={styles.listItem}>1: {props.Student1}</Text>
                 <Text style={styles.listItem}>2: {props.Student2}</Text>
                 <Text style={styles.listItem}>3: {props.Student3}</Text>
