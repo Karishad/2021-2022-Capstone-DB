@@ -70,81 +70,52 @@ return (
       //marginRight:'auto',
       //marginLeft:'auto',
       //width:"100%",
-      width:"max-context"
+      //width:"max-context"
       //overflow:"auto"
+      // sx={{ minWidth: 5000 }}
     }}
     >
-      <Table sx={{ minWidth: 1500 }} >
+      <Table >
         <TableHead>
-          <TableRow>
-            <TableCell align="left">ID</TableCell>
-            <TableCell align="left">Course #</TableCell>
-            <TableCell align="left" sx={{width:300}}>Course Name</TableCell>
-            <TableCell align="left">Program</TableCell>
-            <TableCell align="left">Coordinator</TableCell>
-            <TableCell align="left">Required</TableCell>
-            <TableCell align="left">Prerequisites</TableCell>
-            <TableCell align="left">Course Description</TableCell>
-            <TableCell align="left">Credit Hours</TableCell>
-            <TableCell align="left">Contact Hours</TableCell>
-            <TableCell align="left">Book</TableCell>
-            <TableCell align="left">Topics</TableCell>
-            <TableCell align="left">LastUpdated</TableCell>
-            <TableCell align="left">Room #</TableCell>
-            <TableCell align="left">Software Used</TableCell>
-            <TableCell align="left">Outcome 1</TableCell>
-            <TableCell align="left">Outcome 2</TableCell>
-            <TableCell align="left">Outcome 3</TableCell>
-            <TableCell align="left">Outcome 4</TableCell>
-            <TableCell align="left">Outcome 5</TableCell>
-            <TableCell align="left">Outcome 6</TableCell>
-            <TableCell align="left">Outcome 7</TableCell>
-            <TableCell align="left">Outcome 8</TableCell>
-            <TableCell align="left">Outcome 9</TableCell>
-            <TableCell align="left">Student 1</TableCell>
-            <TableCell align="left">Student 2</TableCell>
-            <TableCell align="left">Student 3</TableCell>
-            <TableCell align="left">Student 4</TableCell>
-            <TableCell align="left">Student 5</TableCell>
-            <TableCell align="left">Student 6</TableCell>
-            <TableCell align="left">Student 7</TableCell>
+          <TableRow sx={{borderBottom: "4px solid black"}}>
+          <TableCell align="center" sx={{ minWidth: 200, backgroundColor: 'black', color: 'white', borderRight: "4px solid black"}}> Function </TableCell>
+            <TableCell align="center" sx={{ minWidth: 120 }}>ID</TableCell>
+            <TableCell align="center" sx={{ minWidth: 120 }}>Course #</TableCell>
+            <TableCell align="center" sx={{ minWidth: 220 }}>Course Name</TableCell>
+            <TableCell align="center" sx={{ minWidth: 150 }}>Program</TableCell>
+            <TableCell align="center" sx={{ minWidth: 120 }}>Coordinator</TableCell>
+            <TableCell align="center" sx={{ minWidth: 120 }}>Required</TableCell>
+            <TableCell align="center" sx={{ minWidth: 220 }}>Prerequisites</TableCell>
+            <TableCell align="center" sx={{ minWidth: 420 }}>Course Description</TableCell>
+            <TableCell align="center" sx={{ minWidth: 120 }}>Credit Hours</TableCell>
+            <TableCell align="center" sx={{ minWidth: 120 }}>Contact Hours</TableCell>
+            <TableCell align="center" sx={{ minWidth: 420 }}>Book</TableCell>
+            <TableCell align="center" sx={{ minWidth: 420 }}>Topics</TableCell>
+            <TableCell align="center" sx={{ minWidth: 120 }}>LastUpdated</TableCell>
+            <TableCell align="center" sx={{ minWidth: 120 }}>Room #</TableCell>
+            <TableCell align="center" sx={{ minWidth: 220 }}>Software Used</TableCell>
+            <TableCell align="center" sx={{ minWidth: 220 }}>Outcome 1</TableCell>
+            <TableCell align="center" sx={{ minWidth: 220 }}>Outcome 2</TableCell>
+            <TableCell align="center" sx={{ minWidth: 220 }}>Outcome 3</TableCell>
+            <TableCell align="center" sx={{ minWidth: 220 }}>Outcome 4</TableCell>
+            <TableCell align="center" sx={{ minWidth: 220 }}>Outcome 5</TableCell>
+            <TableCell align="center" sx={{ minWidth: 220 }}>Outcome 6</TableCell>
+            <TableCell align="center" sx={{ minWidth: 220 }}>Outcome 7</TableCell>
+            <TableCell align="center" sx={{ minWidth: 220 }}>Outcome 8</TableCell>
+            <TableCell align="center" sx={{ minWidth: 220 }}>Outcome 9</TableCell>
+            <TableCell align="center" sx={{ minWidth: 120 }}>Student 1</TableCell>
+            <TableCell align="center" sx={{ minWidth: 120 }}>Student 2</TableCell>
+            <TableCell align="center" sx={{ minWidth: 120 }}>Student 3</TableCell>
+            <TableCell align="center" sx={{ minWidth: 120 }}>Student 4</TableCell>
+            <TableCell align="center" sx={{ minWidth: 120 }}>Student 5</TableCell>
+            <TableCell align="center" sx={{ minWidth: 120 }}>Student 6</TableCell>
+            <TableCell align="center" sx={{ minWidth: 120 }}>Student 7</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {courses.map(course => (
-            <TableRow key={course.id}>
-              <TableCell align="left">{course.id}</TableCell>
-              <TableCell align="left">{course.CourseNumber}</TableCell>
-              <TableCell align="left">{course.CourseName}</TableCell>
-              <TableCell align="left">{course.Program}</TableCell>
-              <TableCell align="left">{course.Coordinator}</TableCell>
-              <TableCell align="left">{course.Required}</TableCell>
-              <TableCell align="left">{course.Prerequisites}</TableCell>
-              <TableCell align="left">{course.CourseDescription}</TableCell>
-              <TableCell align="left">{course.CreditHours}</TableCell>
-              <TableCell align="left">{course.ContactHours}</TableCell>
-              <TableCell align="left">{course.Book}</TableCell>
-              <TableCell align="left">{course.Topics}</TableCell>
-              <TableCell align="left">{course.LastUpdated}</TableCell>
-              <TableCell align="left">{course.RoomNumberForSoftware}</TableCell>
-              <TableCell align="left">{course.SoftwareUsed}</TableCell>
-              <TableCell align="left">{course.Outcome1}</TableCell>
-              <TableCell align="left">{course.Outcome2}</TableCell>
-              <TableCell align="left">{course.Outcome3}</TableCell>
-              <TableCell align="left">{course.Outcome4}</TableCell>
-              <TableCell align="left">{course.Outcome5}</TableCell>
-              <TableCell align="left">{course.Outcome6}</TableCell>
-              <TableCell align="left">{course.Outcome7}</TableCell>
-              <TableCell align="left">{course.Outcome8}</TableCell>
-              <TableCell align="left">{course.Outcome9}</TableCell>
-              <TableCell align="left">{course.StudentOutcomeConnection1}</TableCell>
-              <TableCell align="left">{course.StudentOutcomeConnection2}</TableCell>
-              <TableCell align="left">{course.StudentOutcomeConnection3}</TableCell>
-              <TableCell align="left">{course.StudentOutcomeConnection4}</TableCell>
-              <TableCell align="left">{course.StudentOutcomeConnection5}</TableCell>
-              <TableCell align="left">{course.StudentOutcomeConnection6}</TableCell>
-              <TableCell align="left">{course.StudentOutcomeConnection7}</TableCell>
-              <TableCell><PDFDownloadLink document={<PDFFile id={course.id} 
+            <TableRow key={course.id} sx={{borderBottom: "2px solid black"}}>
+               <TableCell sx={{ backgroundColor: '#006a31', borderRight: "4px solid black" }}><PDFDownloadLink document={<PDFFile id={course.id} 
                 CourseNumber={course.CourseNumber} 
                 CourseName={course.CourseName} 
                 Program={course.Program} 
@@ -169,6 +140,37 @@ return (
                 {({ loading }) => (loading ? <button>Loading PDF...</button> : <button>Download PDF</button>)}</PDFDownloadLink>
               <button onClick={() => {handleUpdate(course)}}>Update</button>
               <button onClick={() => {deleteCourse({id:course.id})}}>Delete</button></TableCell>
+              <TableCell align="center" >{course.id}</TableCell>
+              <TableCell align="center" sx={{fontWeight: 600, fontSize: 18}}>{course.CourseNumber}</TableCell>
+              <TableCell align="center" >{course.CourseName}</TableCell>
+              <TableCell align="center">{course.Program}</TableCell>
+              <TableCell align="center">{course.Coordinator}</TableCell>
+              <TableCell align="center">{course.Required}</TableCell>
+              <TableCell align="center">{course.Prerequisites}</TableCell>
+              <TableCell align="center">{course.CourseDescription}</TableCell>
+              <TableCell align="center">{course.CreditHours}</TableCell>
+              <TableCell align="center">{course.ContactHours}</TableCell>
+              <TableCell align="center">{course.Book}</TableCell>
+              <TableCell align="center">{course.Topics}</TableCell>
+              <TableCell align="center">{course.LastUpdated}</TableCell>
+              <TableCell align="center">{course.RoomNumberForSoftware}</TableCell>
+              <TableCell align="center">{course.SoftwareUsed}</TableCell>
+              <TableCell align="center">{course.Outcome1}</TableCell>
+              <TableCell align="center">{course.Outcome2}</TableCell>
+              <TableCell align="center">{course.Outcome3}</TableCell>
+              <TableCell align="center">{course.Outcome4}</TableCell>
+              <TableCell align="center">{course.Outcome5}</TableCell>
+              <TableCell align="center">{course.Outcome6}</TableCell>
+              <TableCell align="center">{course.Outcome7}</TableCell>
+              <TableCell align="center">{course.Outcome8}</TableCell>
+              <TableCell align="center">{course.Outcome9}</TableCell>
+              <TableCell align="center">{course.StudentOutcomeConnection1}</TableCell>
+              <TableCell align="center">{course.StudentOutcomeConnection2}</TableCell>
+              <TableCell align="center">{course.StudentOutcomeConnection3}</TableCell>
+              <TableCell align="center">{course.StudentOutcomeConnection4}</TableCell>
+              <TableCell align="center">{course.StudentOutcomeConnection5}</TableCell>
+              <TableCell align="center">{course.StudentOutcomeConnection6}</TableCell>
+              <TableCell align="center">{course.StudentOutcomeConnection7}</TableCell>
             </TableRow>))}
         </TableBody>
       </Table>
