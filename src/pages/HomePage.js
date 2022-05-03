@@ -72,7 +72,7 @@ return (
       //width:"100%",
       //width:"max-context"
       //overflow:"auto"
-      // sx={{ minWidth: 5000 }}
+      maxHeight: 875
     }}
     >
       <Table >
