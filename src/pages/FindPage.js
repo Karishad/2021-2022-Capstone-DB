@@ -151,13 +151,14 @@ export default function FindPage() {
                         //width:"max-context"
                         //overflow:"auto"
                         // sx={{ minWidth: 5000 }}
+                        maxHeight: 875
                     }}
                 >
                     <Table >
                         <TableHead>
                             <TableRow sx={{ borderBottom: "4px solid black" }}>
                                 <TableCell align="center" sx={{ minWidth: 200, backgroundColor: 'black', color: 'white', borderRight: "4px solid black" }}> Function </TableCell>
-                                <TableCell align="center" sx={{ minWidth: 120 }}>ID</TableCell>
+                                <TableCell align="center" sx={{ minWidth: 120 ,fontSize: 20, fontWeight: 600, borderRight: "4px solid black"}}>ID</TableCell>
                                 <TableCell align="center" sx={{ minWidth: 120 }}>Course #</TableCell>
                                 <TableCell align="center" sx={{ minWidth: 220 }}>Course Name</TableCell>
                                 <TableCell align="center" sx={{ minWidth: 150 }}>Program</TableCell>
@@ -218,7 +219,7 @@ export default function FindPage() {
                                         {({ loading }) => (loading ? <button>Loading PDF...</button> : <button>Download PDF</button>)}</PDFDownloadLink>
                                         <button onClick={() => { handleUpdate(course) }}>Update</button>
                                         <button onClick={() => { deleteCourse({ id: course.id }) }}>Delete</button></TableCell>
-                                    <TableCell align="center" >{course.id}</TableCell>
+                                    <TableCell align="center" sx={{ fontWeight: 600, fontSize: 20, borderRight: "4px solid black" }}>{course.id}</TableCell>
                                     <TableCell align="center" sx={{ fontWeight: 600, fontSize: 18 }}>{course.CourseNumber}</TableCell>
                                     <TableCell align="center" >{course.CourseName}</TableCell>
                                     <TableCell align="center">{course.Program}</TableCell>
