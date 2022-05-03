@@ -122,14 +122,41 @@ export default function CreatePage() {
           <div id="CourseObjectives">
             <label htmlFor="CourseOutcome">Course Outcomes</label>
             <input type="text" name="CourseOutcome1" id="CourseOutcome1" {...register('Outcome1')}></input>
+            <small className="text-danger">
+              {errors?.Outcome1 && errors.Outcome1.message}
+            </small>
             <input type="text" name="CourseOutcome2" id="CourseOutcome2" {...register('Outcome2')}></input>
+            <small className="text-danger">
+              {errors?.Outcome2 && errors.Outcome2.message}
+            </small>
             <input type="text" name="CourseOutcome3" id="CourseOutcome3" {...register('Outcome3')}></input>
+            <small className="text-danger">
+              {errors?.Outcome3 && errors.Outcome3.message}
+            </small>
             <input type="text" name="CourseOutcome4" id="CourseOutcome4" {...register('Outcome4')}></input>
+            <small className="text-danger">
+              {errors?.Outcome4 && errors.Outcome4.message}
+            </small>
             <input type="text" name="CourseOutcome5" id="CourseOutcome5" {...register('Outcome5')}></input>
+            <small className="text-danger">
+              {errors?.Outcome5 && errors.Outcome5.message}
+            </small>
             <input type="text" name="CourseOutcome6" id="CourseOutcome6" {...register('Outcome6')}></input>
+            <small className="text-danger">
+              {errors?.Outcome6 && errors.Outcome6.message}
+            </small>
             <input type="text" name="CourseOutcome7" id="CourseOutcome7" {...register('Outcome7')}></input>
+            <small className="text-danger">
+              {errors?.Outcome7 && errors.Outcome7.message}
+            </small>
             <input type="text" name="CourseOutcome8" id="CourseOutcome8" {...register('Outcome8')}></input>
+            <small className="text-danger">
+              {errors?.Outcome8 && errors.Outcome8.message}
+            </small>
             <input type="text" name="CourseOutcome9" id="CourseOutcome9" {...register('Outcome9')}></input>
+            <small className="text-danger">
+              {errors?.Outcome9 && errors.Outcome9.message}
+            </small>
           </div>
         </div>
 
@@ -137,13 +164,33 @@ export default function CreatePage() {
           <div id="CourseObjectiveConnections">
             <label htmlFor="StudentOutcome">Course Outcome</label>
             <input type="text" name="StudentOutcomeConnection1" id="StudentOutcomeConnection1" {...register('StudentOutcomeConnection1')}></input>
+            <small className="text-danger">
+              {errors?.StudentOutcomeConnection1 && errors.StudentOutcomeConnection1.message}
+            </small>
             <input type="text" name="StudentOutcomeConnection2" id="StudentOutcomeConnection2" {...register('StudentOutcomeConnection2')}></input>
+            <small className="text-danger">
+              {errors?.StudentOutcomeConnection2 && errors.StudentOutcomeConnection2.message}
+            </small>
             <input type="text" name="StudentOutcomeConnection3" id="StudentOutcomeConnection3" {...register('StudentOutcomeConnection3')}></input>
+            <small className="text-danger">
+              {errors?.StudentOutcomeConnection3 && errors.StudentOutcomeConnection3.message}
+            </small>
             <input type="text" name="StudentOutcomeConnection4" id="StudentOutcomeConnection4" {...register('StudentOutcomeConnection4')}></input>
+            <small className="text-danger">
+              {errors?.StudentOutcomeConnection4 && errors.StudentOutcomeConnection4.message}
+            </small>
             <input type="text" name="StudentOutcomeConnection5" id="StudentOutcomeConnection5" {...register('StudentOutcomeConnection5')}></input>
+            <small className="text-danger">
+              {errors?.StudentOutcomeConnection5 && errors.StudentOutcomeConnection5.message}
+            </small>
             <input type="text" name="StudentOutcomeConnection6" id="StudentOutcomeConnection6" {...register('StudentOutcomeConnection6')}></input>
+            <small className="text-danger">
+              {errors?.StudentOutcomeConnection6 && errors.StudentOutcomeConnection6.message}
+            </small>
             <input type="text" name="StudentOutcomeConnection7" id="StudentOutcomeConnection7" {...register('StudentOutcomeConnection7')}></input>
-
+            <small className="text-danger">
+              {errors?.StudentOutcomeConnection7 && errors.StudentOutcomeConnection7.message}
+            </small>
           </div>
         </div>
 
@@ -151,12 +198,33 @@ export default function CreatePage() {
           <div id="StudentObjectives">
             <label htmlFor="StudentOutcome">Student Outcomes</label>
             <input type="text" name="StudentOutcome1" id="StudentOutcome1" {...register('StudentOutcome1')}></input>
+            <small className="text-danger">
+              {errors?.StudentOutcome1 && errors.StudentOutcome1.message}
+            </small>
             <input type="text" name="StudentOutcome2" id="StudentOutcome2" {...register('StudentOutcome2')}></input>
+            <small className="text-danger">
+              {errors?.StudentOutcome2 && errors.StudentOutcome2.message}
+            </small>
             <input type="text" name="StudentOutcome3" id="StudentOutcome3" {...register('StudentOutcome3')}></input>
+            <small className="text-danger">
+              {errors?.StudentOutcome3 && errors.StudentOutcome3.message}
+            </small>
             <input type="text" name="StudentOutcome4" id="StudentOutcome4" {...register('StudentOutcome4')}></input>
+            <small className="text-danger">
+              {errors?.StudentOutcome4 && errors.StudentOutcome4.message}
+            </small>
             <input type="text" name="StudentOutcome5" id="StudentOutcome5" {...register('StudentOutcome5')}></input>
+            <small className="text-danger">
+              {errors?.StudentOutcome5 && errors.StudentOutcome5.message}
+            </small>
             <input type="text" name="StudentOutcome6" id="StudentOutcome6" {...register('StudentOutcome6')}></input>
+            <small className="text-danger">
+              {errors?.StudentOutcome6 && errors.StudentOutcome6.message}
+            </small>
             <input type="text" name="StudentOutcome7" id="StudentOutcome7" {...register('StudentOutcome7')}></input>
+            <small className="text-danger">
+              {errors?.StudentOutcome7 && errors.StudentOutcome7.message}
+            </small>
           </div>
         </div>
 
@@ -209,12 +277,6 @@ export default function CreatePage() {
   )
 }
 
-/*  Course Decscription
-  <div className="courseDescriptionTextArea">
-          <label htmlFor="CourseDescription">Course Description </label>
-          <textarea name="CourseDescription" id="CourseDescription" {...register('CourseDescription')}></textarea>
-  </div>
-*/
 
 /*
 --HTML attribute "for" changes--
@@ -239,31 +301,6 @@ I then set the "defaultValue" attribute to "". This fixes the React warning abou
 I can optionally add in placeholder text for my select if I put text in between my default disabled option:
 "<option value="" disable>...</option>". Also, there is another HTML form element called "datalist".
 It shows predefined selections but the user can type in anything they want.
-
-<img className="pdf-image" src={space} alt="" />
 */
 
-/*
-//I added an ID to the div that contains the outcomes and named it "Objectives".
-  //Duplicates Objective input field and appends it to the parent Objectives div.
-  const copyNode = () => {
-    const node = document.getElementById("CourseOutcome")
-    const clone = node.cloneNode();
-    document.getElementById("CourseObjectives").appendChild(clone);
-  }
-
-  const deleteNode = () => {
-    const node = document.getElementById("CourseObjectives")
-    if (node.children[2] != null) {
-      node.removeChild(node.lastChild);
-    }
-  }
-  
-<div className="ObjectiveButton">
-          <input type="button" value="Add Objective" onClick={copyNode}></input>
-        </div>
-        <div className="ObjectiveDeleteButton">
-          <input type="button" value="Delete Objective" onClick={deleteNode}></input>
-        </div>
-*/
 

@@ -1,6 +1,6 @@
 import React from 'react';
-import NavBar from './components/NavBar';
-import BlackNav from './components/BlackNav';
+import NavBar from './navbar/NavBar';
+import BlackNav from './navbar/BlackNav';
 import CreatePage from './pages/CreatePage';
 import FindPage from './pages/FindPage';
 import HomePage from './pages/HomePage';
@@ -35,12 +35,4 @@ export default function App() {
     </Router>
   );
 } 
-
-/*function Child() {
-  let { id } = useParams();
-
-  return (
-    <UpdatePage />
-  );
-}*/
 

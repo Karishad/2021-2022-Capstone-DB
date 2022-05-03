@@ -125,14 +125,41 @@ export default function UpdatePage() {
           <div id="CourseObjectives">
             <label htmlFor="CourseOutcome">Course Outcomes</label>
             <input type="text" name="CourseOutcome1" id="CourseOutcome1" defaultValue={course.Outcome1} {...register('Outcome1')}></input>
+            <small className="text-danger">
+              {errors?.Outcome1 && errors.Outcome1.message}
+            </small>
             <input type="text" name="CourseOutcome2" id="CourseOutcome2" defaultValue={course.Outcome2} {...register('Outcome2')}></input>
+            <small className="text-danger">
+              {errors?.Outcome2 && errors.Outcome2.message}
+            </small>
             <input type="text" name="CourseOutcome3" id="CourseOutcome3" defaultValue={course.Outcome3} {...register('Outcome3')}></input>
+            <small className="text-danger">
+              {errors?.Outcome3 && errors.Outcome3.message}
+            </small>
             <input type="text" name="CourseOutcome4" id="CourseOutcome4" defaultValue={course.Outcome4} {...register('Outcome4')}></input>
+            <small className="text-danger">
+              {errors?.Outcome4 && errors.Outcome4.message}
+            </small>
             <input type="text" name="CourseOutcome5" id="CourseOutcome5" defaultValue={course.Outcome5} {...register('Outcome5')}></input>
+            <small className="text-danger">
+              {errors?.Outcome5 && errors.Outcome5.message}
+            </small>
             <input type="text" name="CourseOutcome6" id="CourseOutcome6" defaultValue={course.Outcome6} {...register('Outcome6')}></input>
+            <small className="text-danger">
+              {errors?.Outcome6 && errors.Outcome6.message}
+            </small>
             <input type="text" name="CourseOutcome7" id="CourseOutcome7" defaultValue={course.Outcome7} {...register('Outcome7')}></input>
+            <small className="text-danger">
+              {errors?.Outcome7 && errors.Outcome7.message}
+            </small>
             <input type="text" name="CourseOutcome8" id="CourseOutcome8" defaultValue={course.Outcome8} {...register('Outcome8')}></input>
+            <small className="text-danger">
+              {errors?.Outcome8 && errors.Outcome8.message}
+            </small>
             <input type="text" name="CourseOutcome9" id="CourseOutcome9" defaultValue={course.Outcome9} {...register('Outcome9')}></input>
+            <small className="text-danger">
+              {errors?.Outcome9 && errors.Outcome9.message}
+            </small>
           </div>
         </div>
 
@@ -140,13 +167,33 @@ export default function UpdatePage() {
           <div id="CourseObjectiveConnections">
             <label htmlFor="StudentOutcome">Course Outcome</label>
             <input type="text" name="StudentOutcomeConnection1" id="StudentOutcomeConnection1" defaultValue={course.StudentOutcomeConnection1} {...register('StudentOutcomeConnection1')}></input>
+            <small className="text-danger">
+              {errors?.StudentOutcomeConnection1 && errors.StudentOutcomeConnection1.message}
+            </small>
             <input type="text" name="StudentOutcomeConnection2" id="StudentOutcomeConnection2" defaultValue={course.StudentOutcomeConnection2} {...register('StudentOutcomeConnection2')}></input>
+            <small className="text-danger">
+              {errors?.StudentOutcomeConnection2 && errors.StudentOutcomeConnection2.message}
+            </small>
             <input type="text" name="StudentOutcomeConnection3" id="StudentOutcomeConnection3" defaultValue={course.StudentOutcomeConnection3} {...register('StudentOutcomeConnection3')}></input>
+            <small className="text-danger">
+              {errors?.StudentOutcomeConnection3 && errors.StudentOutcomeConnection3.message}
+            </small>
             <input type="text" name="StudentOutcomeConnection4" id="StudentOutcomeConnection4" defaultValue={course.StudentOutcomeConnection4} {...register('StudentOutcomeConnection4')}></input>
+            <small className="text-danger">
+              {errors?.StudentOutcomeConnection4 && errors.StudentOutcomeConnection4.message}
+            </small>
             <input type="text" name="StudentOutcomeConnection5" id="StudentOutcomeConnection5" defaultValue={course.StudentOutcomeConnection5} {...register('StudentOutcomeConnection5')}></input>
+            <small className="text-danger">
+              {errors?.StudentOutcomeConnection5 && errors.StudentOutcomeConnection5.message}
+            </small>
             <input type="text" name="StudentOutcomeConnection6" id="StudentOutcomeConnection6" defaultValue={course.StudentOutcomeConnection6} {...register('StudentOutcomeConnection6')}></input>
+            <small className="text-danger">
+              {errors?.StudentOutcomeConnection6 && errors.StudentOutcomeConnection6.message}
+            </small>
             <input type="text" name="StudentOutcomeConnection7" id="StudentOutcomeConnection7" defaultValue={course.StudentOutcomeConnection7} {...register('StudentOutcomeConnection7')}></input>
-
+            <small className="text-danger">
+              {errors?.StudentOutcomeConnection7 && errors.StudentOutcomeConnection7.message}
+            </small>
           </div>
         </div>
 
@@ -154,12 +201,33 @@ export default function UpdatePage() {
           <div id="StudentObjectives">
             <label htmlFor="StudentOutcome">Student Outcomes</label>
             <input type="text" name="StudentOutcome1" id="StudentOutcome1" defaultValue={course.StudentOutcome1} {...register('StudentOutcome1')}></input>
+            <small className="text-danger">
+              {errors?.StudentOutcome1 && errors.StudentOutcome1.message}
+            </small>
             <input type="text" name="StudentOutcome2" id="StudentOutcome2" defaultValue={course.StudentOutcome2} {...register('StudentOutcome2')}></input>
+            <small className="text-danger">
+              {errors?.StudentOutcome2 && errors.StudentOutcome2.message}
+            </small>
             <input type="text" name="StudentOutcome3" id="StudentOutcome3" defaultValue={course.StudentOutcome3} {...register('StudentOutcome3')}></input>
+            <small className="text-danger">
+              {errors?.StudentOutcome3 && errors.StudentOutcome3.message}
+            </small>
             <input type="text" name="StudentOutcome4" id="StudentOutcome4" defaultValue={course.StudentOutcome4} {...register('StudentOutcome4')}></input>
+            <small className="text-danger">
+              {errors?.StudentOutcome4 && errors.StudentOutcome4.message}
+            </small>
             <input type="text" name="StudentOutcome5" id="StudentOutcome5" defaultValue={course.StudentOutcome5} {...register('StudentOutcome5')}></input>
+            <small className="text-danger">
+              {errors?.StudentOutcome5 && errors.StudentOutcome5.message}
+            </small>
             <input type="text" name="StudentOutcome6" id="StudentOutcome6" defaultValue={course.StudentOutcome6} {...register('StudentOutcome6')}></input>
+            <small className="text-danger">
+              {errors?.StudentOutcome6 && errors.StudentOutcome6.message}
+            </small>
             <input type="text" name="StudentOutcome7" id="StudentOutcome7" defaultValue={course.StudentOutcome7} {...register('StudentOutcome7')}></input>
+            <small className="text-danger">
+              {errors?.StudentOutcome7 && errors.StudentOutcome7.message}
+            </small>
           </div>
         </div>
 

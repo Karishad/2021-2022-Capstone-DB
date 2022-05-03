@@ -33,11 +33,11 @@ Course.init({
         allowNull: false
     },
     CourseName: {
-        type: "VARCHAR(50)",
+        type: "VARCHAR(100)",
         allowNull: false
     },
     Coordinator: {
-        type: "VARCHAR(50)",
+        type: "VARCHAR(100)",
         allowNull: false
     },
     Book: {

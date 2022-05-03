@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import axios from '../axios';
 
-import PDFFile from '../PDFfile';
+import PDFFile from '../pdf/PDFfile';
 import { PDFDownloadLink } from '@react-pdf/renderer';
 
 import Table from '@mui/material/Table';
