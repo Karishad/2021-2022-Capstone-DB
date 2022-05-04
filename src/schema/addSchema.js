@@ -1,3 +1,5 @@
+//Form validation for Create page
+
 import * as yup from "yup";
 
 export const schema = yup.object({
@@ -32,7 +34,7 @@ export const schema = yup.object({
         .max(50, 'Credit hours must be 50 characters or less')
         .required('This field is required'),         
     Topics: yup.string()
-        .max(500, 'Topics must be 500 characters or less')
+        .max(1000, 'Topics must be 1000 characters or less')
         .optional(),
     Outcome1: yup.string()
         .max(500, 'Outcome must be 500 characters or less')
@@ -62,7 +64,7 @@ export const schema = yup.object({
         .max(500, 'Outcome must be 500 characters or less')
         .optional(),
     CourseDescription: yup.string()
-        .max(500, 'Course description must be 500 characters or less')
+        .max(1000, 'Course description must be 1000 characters or less')
         .required('This field is required'),
     StudentOutcome1: yup.string()
         .max(500, 'Student outcome must be 500 characters or less')

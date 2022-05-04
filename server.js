@@ -1,8 +1,10 @@
+//Express server
+//This file contains the database connection, server setup, middleware, and routes to communicate with db (database API)
+
 const express = require('express');
 const cors = require('cors');
 const sequelize = require('./db/database');
 const Course = require('./db/models/Course');
-//const { Op } = require("sequelize");
 
 const PORT = 4000;
 

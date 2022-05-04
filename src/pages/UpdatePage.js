@@ -1,3 +1,7 @@
+//Update page: prepopulate fields with a course's data, edit, then submit update
+//Update updates the content located at a course's ID instead of creating a new course
+//After update, directs to homepage
+
 import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useForm } from "react-hook-form";

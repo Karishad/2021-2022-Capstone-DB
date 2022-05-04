@@ -1,3 +1,9 @@
+//Find Page: search for courses with exact match to query
+//Query may include Program, Required, CourseNumber, CourseName, and Coordinator
+//Table populated after receiving results: can download pdf, update, or delete course
+//After a delete, query is resubmitted to reflect the current database
+//Update directs to Update Page, and course's contents are passed into the new form
+
 import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
@@ -57,7 +63,7 @@ export default function FindPage() {
     const onSubmit = async (req) => {
         try {
             const res = await axios.post('/findcourse', req);
-            console.log(res.data);
+            //console.log(res.data);
             setvalues(getValues());     //save field values for dynamic resubmission
             /* IDK why but if I straight up do setcourses(res.data) it won't work. I have to pass in res.data to another array variable (initcourses=res.data).THEN 
             do setcourses(initcourses) for it to work.*/
@@ -72,8 +78,7 @@ export default function FindPage() {
     const deleteCourse = async (id) => {
         try {
             setchange(true);
-            const res = await axios.post('/deletecourse', id);
-            console.log(res.data);
+            await axios.post('/deletecourse', id);
         } catch (err) {
             console.log(err);
         }

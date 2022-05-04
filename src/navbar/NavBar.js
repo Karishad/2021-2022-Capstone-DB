@@ -1,3 +1,5 @@
+//UNT logo as link to unt.edu
+
 import React from "react";
 import '../CSS/App.css'
 import logo from '../images/UNTbanner.png'
@@ -10,19 +12,12 @@ export default function NavBar() {
             </a>
             <div className = "websiteName">
                 <h1 className="unt">College of Engineering</h1>
-                <h1 className="collegeName">Computer Science and Engineering</h1>
+                <h1 className="deptName">Computer Science and Engineering</h1>
             </div>
         </nav>
     );
 }
 
-/*unused link tag that was exchanged for the anchor tag <a>*/
-
-/*
-  <Link to='/'>
-    <img className="logo" src={logo} />
-  </Link>
-*/
 
 /*
 ------------------------------LINK NOTES-------------------------------

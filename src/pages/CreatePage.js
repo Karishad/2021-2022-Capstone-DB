@@ -1,7 +1,11 @@
+//Create Page: add course to database
+//Includes validation to check if input is within bounds, is of correct type, and filled in if required
+//Input is submitted to database only if it passes validation
+
 import React from 'react';
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
-import { schema } from '../schema/addSchema';
+import { schema } from '../schema/addSchema';           //defines validation schema
 import axios from '../axios';
 
 
@@ -15,7 +19,7 @@ export default function CreatePage() {
   //request to create course on submit then reset form
   const onSubmit = async (req) => {
     try {
-      const res = await axios.post('/courses', req);
+      await axios.post('/courses', req);
     } catch (err) {
       console.error(err);
     };

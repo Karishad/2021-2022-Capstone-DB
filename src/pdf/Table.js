@@ -1,7 +1,7 @@
 // Table.js will be used for table creation of outcomes in PDFfile.js
 import React from "react";
 import { StyleSheet, View, Text } from "@react-pdf/renderer";
-import { borderRight, fontSize } from "@mui/system";
+//import { borderRight, fontSize } from "@mui/system";
 //import { style } from "@mui/system";
 
 const styles = StyleSheet.create({
@@ -36,6 +36,7 @@ const styles = StyleSheet.create({
     },
   })
   
+  // The outcomes table will be as large as the number of ABET student outcomes. These outcomes differ by degree program 
   const OutcomesTable = ({ data }) => {
     return (
       <View style={styles.table}>
@@ -82,20 +83,5 @@ const styles = StyleSheet.create({
     )
   }
   
-  /*const styles = StyleSheet.create({
-    tableContainer: {
-    flexDirection: "row",
-    flexWrap: "wrap",
-    },
-});
-
-// Replace data will props of outcomes
-const OutcomesTable = ({ data }) => (
-    <View style={styles.tableContainer}>
-    {//<TableHeader />}
-    <TableRow items={data.items} />
-    {//<TableFooter items={data.items} />} 
-    </View>
-);*/
 
 export default OutcomesTable;

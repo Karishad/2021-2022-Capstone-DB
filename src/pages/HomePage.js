@@ -1,3 +1,8 @@
+//Home page: lists all courses in database
+//Can download pdf, update, or delete an entry
+//After a delete, all courses are fetched again from the database
+//Update directs to Update Page, and course's contents are passed into the new form
+
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from "../axios";
@@ -28,7 +33,7 @@ export default function HomePage() {
       let initcourses = [];
       try {
         const res = await axios.get('/courses');
-        console.log(res.data);
+        //console.log(res.data);
         initcourses = res.data;
         setcourses(initcourses);
 
@@ -44,8 +49,7 @@ export default function HomePage() {
   //request to delete course
   const deleteCourse = async (id) => {
     try {
-        const res = await axios.post('/deletecourse', id);
-        console.log(res.data);
+        await axios.post('/deletecourse', id);
         setchange(true);
     } catch (err) {
         console.log(err);

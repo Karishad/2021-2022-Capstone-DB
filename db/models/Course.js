@@ -98,7 +98,7 @@ Course.init({
         allowNull: true
     },
     CourseDescription: {
-        type: "VARCHAR(500)",
+        type: "VARCHAR(1000)",
         allowNull: false
     },
     // Not needed
@@ -180,7 +180,7 @@ Course.init({
         allowNull: true
     },
     Topics: {
-        type: "VARCHAR(500)",
+        type: "VARCHAR(1000)",
         allowNull: false        
     },
     Program: {

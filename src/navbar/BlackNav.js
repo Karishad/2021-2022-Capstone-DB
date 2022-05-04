@@ -1,3 +1,5 @@
+//Navigation bar: links to Home page, Create page, and Find page
+
 import React from "react";
 import '../CSS/App.css'
 import { Link } from 'react-router-dom'
@@ -21,11 +23,6 @@ export default function blackNav() {
     );
 }
 
-/*
-  <Link to='/'>
-    <img className="logo" src={logo} />
-  </Link>
-*/
 
 /*
 ------------------------------LINK NOTES-------------------------------

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-// Create Axios instance using base URL of SQLite server
+// Create Axios instance to connect React app to Express server
 
 const PORT = 4000;
 
