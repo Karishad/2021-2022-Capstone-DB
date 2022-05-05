@@ -19,6 +19,12 @@ Most of the dependencies for this application are already integrated into the di
 2. In a usual React application `npm install` would be used to install dependencies within `node_modules`. If there are dependency issues, you may need to manually delete the `node_modules` folder and run `npm install` in `root`.
 3. Navigate to the `src` directory with `cd src` and run `npm run build`. This will help build node within the filesystem.
 
-## To run the program 
-1. Navigate to `root`.
+## To run the program manually
+1. Navigate to `root` or `../2021-2022-Capstone-DB`.
 2. Running `npm run dev` will run both the React application and the backend server.
+## Navigation to the application 
+1. When running on your local machine, the application will be located on `http://localhost:3000/`
+   1. Note: that when you run the program for the first time, the application will open in the system default browser
+2. To close the application, navigate back to the terminal used to open the application and enter `CTRL+C` to end the task.
+   1. An alternative is opening `Task Manager`, and locating the task `React` and manually ending that task. 
+
