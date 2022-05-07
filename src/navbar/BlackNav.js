@@ -1,28 +1,28 @@
+//Navigation bar: links to Home page, Create page, and Find page
+
 import React from "react";
 import '../CSS/App.css'
-import logo from '../images/UNTbanner.png'
+import { Link } from 'react-router-dom'
 
-export default function NavBar() {
+export default function blackNav() {
     return (
-        <nav className="site-title">
-            <a target="_blank" rel="noreferrer" href="https://www.unt.edu/">
-            <img className="logo" src={logo} alt="UNT logo"/>
-            </a>
-            <div className = "websiteName">
-                <h1 className="unt">College of Engineering</h1>
-                <h1 className="collegeName">Computer Science and Engineering</h1>
-            </div>
-        </nav>
+        <div className="blackNav">
+            <ul className="nav-links">
+                <Link to='/'>
+                    <li>Home</li>
+                </Link>
+                <Link to='/create'>
+                    <li>Create</li>
+                </Link>
+                <Link to='/find'>
+                    <li>Find</li>
+                </Link>
+            </ul>
+        </div>
+        
     );
 }
 
-/*unused link tag that was exchanged for the anchor tag <a>*/
-
-/*
-  <Link to='/'>
-    <img className="logo" src={logo} />
-  </Link>
-*/
 
 /*
 ------------------------------LINK NOTES-------------------------------

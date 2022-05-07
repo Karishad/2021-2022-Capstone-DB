@@ -1,3 +1,5 @@
+//Form validation for Create page
+
 import * as yup from "yup";
 
 export const schema = yup.object({
@@ -14,16 +16,16 @@ export const schema = yup.object({
         .moreThan(999, 'Course number must be an integer greater than 999')
         .required('This field is required'),
     Coordinator: yup.string()
-        .max(50, 'Name must be 50 characters or less')
+        .max(100, 'Name must be 100 characters or less')
         .required('This field is required'),
     Prerequisites: yup.string()
         .max(250, 'Prerequisites must be 250 characters or less')
         .required('This field is required'),
     ContactHours: yup.string()
         .max(250, 'Contact hours must be 250 characters or less')
-        .required('This field is required'),         
+        .optional(),         
     CourseName: yup.string()
-        .max(50, 'Course name must be 50 characters or less')
+        .max(100, 'Course name must be 100 characters or less')
         .required('This field is required'),                       
     Book: yup.string()
         .max(250, 'Book(s) must be 250 characters or less')
@@ -32,8 +34,8 @@ export const schema = yup.object({
         .max(50, 'Credit hours must be 50 characters or less')
         .required('This field is required'),         
     Topics: yup.string()
-        .max(500, 'Topics must be 500 characters or less')
-        .required('This field is required'),
+        .max(1000, 'Topics must be 1000 characters or less')
+        .optional(),
     Outcome1: yup.string()
         .max(500, 'Outcome must be 500 characters or less')
         .required('This field is required'),   
@@ -62,10 +64,10 @@ export const schema = yup.object({
         .max(500, 'Outcome must be 500 characters or less')
         .optional(),
     CourseDescription: yup.string()
-        .max(500, 'Course description must be 500 characters or less')
+        .max(1000, 'Course description must be 1000 characters or less')
         .required('This field is required'),
     StudentOutcome1: yup.string()
-        .max(500, 'Student outcome must be 50 characters or less')
+        .max(500, 'Student outcome must be 500 characters or less')
         .required('This field is required'),
     StudentOutcome2: yup.string()
         .max(500, 'Student outcome must be 500 characters or less')
@@ -93,7 +95,7 @@ export const schema = yup.object({
         .optional(),
     StudentOutcomeConnection1: yup.string()
         .max(25, 'Student outcome connection must be 25 characters or less')
-        .required('This field is required'),
+        .optional(),
     StudentOutcomeConnection2: yup.string()
         .max(25, 'Student outcome connection must be 25 characters or less')
         .optional(),
@@ -126,5 +128,5 @@ export const schema = yup.object({
         .optional(),
     LastUpdated: yup.string()
         .max(50, 'Semester last updated must be 50 characters or less')
-        .required('This field is required'),                              
+        .optional(),                              
   });

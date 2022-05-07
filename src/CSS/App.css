@@ -59,6 +59,7 @@ li{
 .site-title {
     display: flex;
     justify-content: left;
+    min-width: 950px;
 }
 
 .websiteName {
@@ -71,7 +72,7 @@ li{
     font-size: 15px;
 }
 
-.websiteName .collegeName {
+.websiteName .deptName {
     font-size: 35px;
 }
 

@@ -1,31 +1,23 @@
+//UNT logo as link to unt.edu
+
 import React from "react";
 import '../CSS/App.css'
-import { Link } from 'react-router-dom'
+import logo from '../images/UNTbanner.png'
 
-export default function blackNav() {
+export default function NavBar() {
     return (
-        <div className="blackNav">
-            <ul className="nav-links">
-                <Link to='/'>
-                    <li>Home</li>
-                </Link>
-                <Link to='/create'>
-                    <li>Create</li>
-                </Link>
-                <Link to='/find'>
-                    <li>Find</li>
-                </Link>
-            </ul>
-        </div>
-        
+        <nav className="site-title">
+            <a target="_blank" rel="noreferrer" href="https://www.unt.edu/">
+            <img className="logo" src={logo} alt="UNT logo"/>
+            </a>
+            <div className = "websiteName">
+                <h1 className="unt">College of Engineering</h1>
+                <h1 className="deptName">Computer Science and Engineering</h1>
+            </div>
+        </nav>
     );
 }
 
-/*
-  <Link to='/'>
-    <img className="logo" src={logo} />
-  </Link>
-*/
 
 /*
 ------------------------------LINK NOTES-------------------------------
